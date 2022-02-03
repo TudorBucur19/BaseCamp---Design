@@ -1,0 +1,29 @@
+.basic {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #666666;
+}
+
+.outlined {
+    padding: 15px 30px;
+    border: 2px solid #6088a4;
+    color: #6088a4;
+    font-size: 1em;
+    font-weight: bold;
+    min-width: 50%;
+}
+
+.solid {
+    background: #fff;
+}
+
+.btnIcon {
+    font-size: 1em;
+    margin-left: 0.5em;
+}

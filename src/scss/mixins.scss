@@ -13,3 +13,9 @@
     font-size: $font;
     padding: $padding;
 }
+
+@mixin fontSize($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}

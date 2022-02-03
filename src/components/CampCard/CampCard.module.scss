@@ -1,0 +1,72 @@
+@import '../../scss/mixins.scss';
+
+.card {
+    width: 100%;
+    margin-bottom: 2em;    
+}
+
+.card_cover {
+    position: relative;
+
+    &_image {
+        //position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+    }
+
+    &_info {
+        position: absolute;
+        bottom: 5%;
+        margin-left: 1em;
+        display: flex;
+        align-items: flex-end;
+
+        &_text {
+            @include fontSize(0.8em, normal, white);
+            text-transform: uppercase;
+            margin-right: 1em;
+        }
+    }
+}
+
+.card_details {
+    padding: 1.4em 1.4em 0;
+    border: 1px solid #66666650;
+    border-top: none ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &_title {
+        @include fontSize(1.6rem, normal, #666666)
+    }
+
+    &_access {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+
+    &_description {
+        min-height: 3rem;
+        margin-bottom: 1em;
+
+        &_text {
+            color: #666666;
+        }
+    }
+
+    &_footer {
+        border-top: 1px solid #66666650;
+        margin-top: 1em;
+        padding: 1em 0;
+        display: flex;
+        justify-content: space-between;
+
+        &_icons {
+            flex-grow: 1;
+        }
+    }
+}
+

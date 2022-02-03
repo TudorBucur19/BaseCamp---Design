@@ -1,0 +1,6 @@
+.listGrid {
+    display: grid;
+    margin-top: 2em;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+}
