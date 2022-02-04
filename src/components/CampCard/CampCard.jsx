@@ -15,6 +15,7 @@ import { ratingCalculator } from 'utils/helperFunctions/helperFunctions';
 import { locationAccess, campgroundFacilities } from 'utils/configValues';
 import missingImage from 'assets/image-not-found.jpg';
 import styles from 'components/CampCard/CampCard.module.scss';
+import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 
 const CampCard = ({ campground, url }) => {
     const { image, name, price, country, landscape, access, facilities, description } = campground.campground;
@@ -23,7 +24,6 @@ const CampCard = ({ campground, url }) => {
     const currentCampFacilities = facilities && campgroundFacilities.filter(item => facilities.includes(item.name));
     const displayFacilities = currentCampFacilities.slice(0, 4);
     const displayDescriprtion = description.length > 100 ? `${description.substring(0, 100)}...` : description;
-    console.log(displayFacilities);
     const displayPrice = price > 0 ? `Price from ${price} €` : 'Free Accomodation';
 
     const {
@@ -48,7 +48,7 @@ const CampCard = ({ campground, url }) => {
                 <img className={card_cover_image} src={image ? image[0].url : missingImage} alt="card cover" />
                 <div class={card_cover_info}>
                     {landscape && <h3 className={card_cover_info_text}>{landscape}</h3>}
-                    <StarRating readOnly={true} ratingValue={overAllRating}/>
+                    {overAllRating > 0 && <StarRating readOnly={true} ratingValue={overAllRating}/>}
                 </div>
             </figure>
             <div className={card_details}>
@@ -56,7 +56,7 @@ const CampCard = ({ campground, url }) => {
                 <div className={card_details_access}>
                     <div className={card_details_access_icons}>
                         {currentCampAccess?.map(item => (
-                            <item.icon color="borders"/>
+                            <CustomIcon icon={<item.icon/>}/>
                         ))}
                     </div>
 
@@ -74,15 +74,17 @@ const CampCard = ({ campground, url }) => {
                 <div className={card_details_description}>
                     <p className={card_details_description_text}>{displayDescriprtion}</p>
                 </div>
-                <Button label={displayPrice} variant="outlined"/>
+                <Button label={displayPrice.toUpperCase()} variant="outlined"/>
 
                 <div className={card_details_footer}>
                     <div className={card_details_footer_icons}>
                         {displayFacilities.map(item => (
-                            <item.icon color="#66666680" size="1.6em"/>
+                            <CustomIcon icon={<item.icon/>}/>
                         ))}
                     </div>
-                    <Button label="Full Info" icon={<MdArrowForwardIos/>}/>
+                    <Link to={`${url}/${campground.id}`}>
+                        <Button label={"Full Info".toUpperCase()} variant="basic" rightIcon={<MdArrowForwardIos/>} />
+                    </Link>
             </div>
             </div>
         </div>

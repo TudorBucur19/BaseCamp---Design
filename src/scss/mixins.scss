@@ -19,3 +19,10 @@
     font-weight: $weight;
     color: $color;
 }
+
+@mixin hoverButton($color) {
+    &:hover {
+        color: rgba($color, 0.5);
+        
+    }
+}
