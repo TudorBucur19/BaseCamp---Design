@@ -52,7 +52,7 @@ export const ROUTES = [
     }    
 ];
 
-const RouteWithSubRoutes = (route) => {
+const Routes = (route) => {
     return ( 
         <Route
             path={route.path}
@@ -62,4 +62,4 @@ const RouteWithSubRoutes = (route) => {
      );
 }
  
-export default RouteWithSubRoutes;
+export default Routes;

@@ -13,7 +13,7 @@ import Select from '@mui/material/Select';
 
 import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
-import FileInput from 'components/Common/FileInput';
+import FileInput from 'components/forms/FileInput';
 import MapContainer from 'components/Common/MapContainer';
 import { campgroundFacilities, landscapeType, locationAccess, accomodationType } from 'utils/configValues';
 
