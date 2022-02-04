@@ -1,14 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { makeStyles } from '@material-ui/styles';
-import Container from '@mui/material/Container';
 
-import PrimarySearchAppBar from 'components/navbar/AppBar';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import CampgroundForm from 'components/forms/CampgroundForm';
 
 
-const AddNewCampground = ({ currentCamp, formTitle = "Create a New Campground" }) => {
+const AddNewCampground = ({ currentCamp }) => {
     const { campground, setCampground, setIsEditMode } = useContext(CampgroundsContext);
     const { setValue } = useForm();
 
@@ -30,24 +27,10 @@ const AddNewCampground = ({ currentCamp, formTitle = "Create a New Campground" }
         };
     }, []);
 
-    const useStyles = makeStyles({
-        fileInput: {
-            display: 'none',
-            visibility: 'none',
-        },
-
-        buttonMb: {
-            marginBottom: '2rem',
-        }
-    });
-
-    const classes = useStyles();
-
     return (
-        <Container className={classes.container} component="div" disableGutters={true} maxWidth="full"> 
-            <PrimarySearchAppBar />
+        <div> 
             <CampgroundForm actionName="Submit"/>
-        </Container>
+        </div>
      );
 }
  

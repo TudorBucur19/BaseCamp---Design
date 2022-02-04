@@ -21,7 +21,6 @@ import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import InfoAccordion from 'components/Common/InfoAccordion';
 import CommentItem from 'components/Common/CommentItem';
 import CommentForm from 'components/forms/CommentForm';
-import PrimarySearchAppBar from 'components/navbar/AppBar';
 import DialogBox from 'components/Common/DialogBox';
 import StarRating from 'components/Common/StarRating';
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
@@ -58,7 +57,6 @@ const ShowCampground = () => {
         <>        
         {camp && 
         <div>
-            <PrimarySearchAppBar/>
             <Container sx={{mb: "2rem"}}>    
                 <Grid container spacing={4} mt={1}>
                     <Grid item xs={12} md={4}>                        

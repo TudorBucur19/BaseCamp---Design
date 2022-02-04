@@ -1,21 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactCountryFlag from 'react-country-flag';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import { MdArrowForwardIos } from 'react-icons/md';
 
 import StarRating from 'components/Common/StarRating';
 import Button from 'components/Common/Button/Button';
+import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import { ratingCalculator } from 'utils/helperFunctions/helperFunctions';
 import { locationAccess, campgroundFacilities } from 'utils/configValues';
 import missingImage from 'assets/image-not-found.jpg';
 import styles from 'components/CampCard/CampCard.module.scss';
-import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 
 const CampCard = ({ campground, url }) => {
     const { image, name, price, country, landscape, access, facilities, description } = campground.campground;

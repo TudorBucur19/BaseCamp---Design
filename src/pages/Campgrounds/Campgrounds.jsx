@@ -11,6 +11,7 @@ import PrimarySearchAppBar from 'components/navbar/AppBar';
 import HeaderStripe from 'components/Common/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
+import Footer from 'components/Footer/Footer';
 import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {
@@ -21,11 +22,11 @@ const Campgrounds = () => {
         result => result.campground.name.toLowerCase().includes(searchWord.searchWord.toLowerCase())
     );
 
-    const {listGrid} = styles;
+    const {listGrid, contentContainer} = styles;
     return ( 
-        <Container component="main" disableGutters={true} maxWidth="false">
-            <PrimarySearchAppBar/>
-            <Container maxWidth="lg" mt={4} sx={{marginTop: '30px'}}>
+        <div>
+            {/* <PrimarySearchAppBar/> */}
+            <div className={contentContainer}>
                 <MapBanner 
                 width="100%" 
                 height="400px"
@@ -40,22 +41,6 @@ const Campgrounds = () => {
                             <CampCard {...{campground, url}}/>
                         )
                     }                    
-
-                    {/* <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    {foundResults &&
-                            foundResults.map((campground) => 
-                            <Grid 
-                            key={campground.id}
-                            item 
-                            xs={12} 
-                            sm={6} 
-                            md={3} 
-                            >
-                                <CampCard {...{campground, url}}/>
-                            </Grid>
-                            )
-                        }                    
-                    </Grid> */}
                 </div>
                 :
                 <Box>
@@ -68,8 +53,9 @@ const Campgrounds = () => {
                     }
                 </Box>
                 }
-            </Container>
-        </Container>
+            </div>
+            {/* <Footer/> */}
+        </div>        
      );
 }
  

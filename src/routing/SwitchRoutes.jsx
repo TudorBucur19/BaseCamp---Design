@@ -1,19 +1,25 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import RouteWithSubRoutes from './Routes';
+import Routes from 'routing/Routes';
+import PrimarySearchAppBar from 'components/navbar/AppBar';
+import Footer from 'components/Footer/Footer';
 
 const SwitchRoutes = ({ routes }) => {
     return ( 
-        <Switch>
-            {routes.map((route) => {
-                return <RouteWithSubRoutes 
-                        key={route.key} 
-                        {...route}                        
-                        /> 
-            })
-            }
-            <Route component={() => <h2>Page not found</h2>} />
-        </Switch>
+        <>
+        <PrimarySearchAppBar/>
+            <Switch>
+                {routes.map((route) => {
+                    return <Routes 
+                            key={route.key} 
+                            {...route}                        
+                            /> 
+                })
+                }
+                <Route component={() => <h2>Page not found</h2>} />
+            </Switch>
+        <Footer/>
+        </>
      );
 }
  

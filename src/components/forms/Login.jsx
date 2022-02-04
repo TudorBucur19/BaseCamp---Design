@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import PrimarySearchAppBar from 'components/navbar/AppBar';
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
-import FileInput from 'components/Common/FileInput';
+import FileInput from 'components/forms/FileInput';
 import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { signUpSchema, signInSchema } from 'utils/yupSchemas';
 
@@ -22,7 +22,6 @@ const Login = () => {
     
     return ( 
         <div>
-        <PrimarySearchAppBar/>
         <Box display="flex" flexDirection="column" width={{sm: '90%', md:'30%'}} mx="auto" my={6} p={3}>
                 <Typography fontWeight="bold" fontSize="1.5rem" mb={2}>
                     Wellcome to BaseCamp
