@@ -11,19 +11,17 @@ import PrimarySearchAppBar from 'components/navbar/AppBar';
 import HeaderStripe from 'components/Common/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
-import useDatabaseCalls from 'utils/cusomHooks/useDatabaseCalls';
-
+import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {
-    const { currentPosition, searchWord } = useContext(CampgroundsContext);
+    const { campgroundsList, currentPosition, searchWord } = useContext(CampgroundsContext);
     const { url } = useRouteMatch();    
-    const { entries } = useDatabaseCalls('Campgrounds');
-    const campgroundsList = entries;
 
     const foundResults = campgroundsList && campgroundsList.filter(
         result => result.campground.name.toLowerCase().includes(searchWord.searchWord.toLowerCase())
     );
 
+    const {listGrid} = styles;
     return ( 
         <Container component="main" disableGutters={true} maxWidth="false">
             <PrimarySearchAppBar/>
@@ -36,8 +34,14 @@ const Campgrounds = () => {
                 />
                 <HeaderStripe/>
                 {foundResults.length ?
-                <Box  py={4}>
-                    <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                <div className={listGrid}>
+                    {foundResults &&
+                        foundResults.map((campground) => 
+                            <CampCard {...{campground, url}}/>
+                        )
+                    }                    
+
+                    {/* <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     {foundResults &&
                             foundResults.map((campground) => 
                             <Grid 
@@ -51,8 +55,8 @@ const Campgrounds = () => {
                             </Grid>
                             )
                         }                    
-                    </Grid>
-                </Box>
+                    </Grid> */}
+                </div>
                 :
                 <Box>
                     {searchWord.searchWord.length ?

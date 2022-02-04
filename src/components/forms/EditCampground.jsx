@@ -10,8 +10,8 @@ import PrimarySearchAppBar from 'components/navbar/AppBar';
 const EditCampground = () => {
     const { campgroundsList, setIsEditMode, setCurrentID } = useContext(CampgroundsContext);
     const { id } = useParams();
-    const camp = campgroundsList.find(campground => campground.id === id);
-
+    const camp = campgroundsList && campgroundsList.find(campground => campground.id === id);
+    
     useEffect(() => {
         setCurrentID(id);
         setIsEditMode(true);
@@ -33,7 +33,7 @@ const EditCampground = () => {
     return ( 
         <Container className={classes.container} component="div" disableGutters={true} maxWidth="full"> 
             <PrimarySearchAppBar/>
-            <CampgroundForm currentCamp={camp} actionName="Update" formTitle={`Edit ${camp.campground.name}`}/>
+            <CampgroundForm currentCamp={camp} actionName="Update" formTitle={`Edit ${camp?.campground.name}`}/>
         </Container>
      );
 }

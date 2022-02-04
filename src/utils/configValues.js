@@ -1,3 +1,6 @@
+import { MdShower, MdLocalDrink, MdWifi, MdElectricalServices, MdOutlinePets, MdVideocam, MdLocalParking, MdCabin, MdBungalow } from 'react-icons/md';
+import { FaRestroom, FaCaravan, FaHiking, FaCar, FaCampground } from 'react-icons/fa';
+
 export const ratingLabels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -10,3 +13,34 @@ export const ratingLabels = {
     4.5: 'Excellent',
     5: 'Excellent+',
 };
+
+export const campgroundFacilities = [
+    { name: "water / spring", icon: MdLocalDrink },
+    { name: "shower", icon: MdShower },
+    { name: "toilet", icon: FaRestroom },
+    { name: "internet", icon: MdWifi },
+    { name: "electricity", icon: MdElectricalServices },
+    { name: "pet friendly", icon: MdOutlinePets },
+    { name: "video security", icon: MdVideocam },
+    { name: "parking", icon: MdLocalParking },
+];
+
+export const landscapeType = [     
+    "mountain campsite",
+    "beach campsite",
+    "countryside campsite",
+    "mountain hut",
+    "mountain refuge",
+];
+
+export const accomodationType = [
+    {name: "tent", icon: FaCampground},
+    {name: "hut", icon: MdBungalow},
+    {name: "camper van", icon: FaCaravan}
+];
+
+export const locationAccess = [
+    {name: "only walk", icon: FaHiking},
+    {name: "car", icon: FaCar},
+    {name: "caravan", icon: FaCaravan},
+];

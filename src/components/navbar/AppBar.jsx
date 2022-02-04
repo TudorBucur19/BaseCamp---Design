@@ -20,6 +20,7 @@ import { FaCampground } from "react-icons/fa";
 
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
+import defaultAvatar from 'assets/defaultAvatar.jpg';
 
 const useStyles = makeStyles({
   header: {
@@ -129,7 +130,7 @@ const PrimarySearchAppBar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="sticky" className={classes.header} elevation={0}>
+      <AppBar className={classes.header} elevation={0} position="sticky">
         <Toolbar>          
           <IconButton
             size="large"
@@ -180,11 +181,7 @@ const PrimarySearchAppBar = () => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              {user.photoURL ?
-             <Avatar alt={user.displayName} src={user.photoURL} />
-             :
-             <AccountCircle />
-              }
+              <Avatar alt={user.displayName} src={user.photoURL ? user.photoURL : defaultAvatar} title={user.displayName}/>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
