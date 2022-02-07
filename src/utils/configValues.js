@@ -44,3 +44,23 @@ export const locationAccess = [
     {name: "car", icon: FaCar},
     {name: "caravan", icon: FaCaravan},
 ];
+
+export const navBarItems = [
+    {
+        path: "/campgrounds",
+        label: "Campgrounds",
+        onlyUser: false,
+    },
+
+    {
+        path: "/contact",
+        label: "Contact",
+        onlyUser: false,
+    },
+
+    {
+        path: "/newcampground",
+        label: "Add new campground",
+        onlyUser: true,
+    },
+];

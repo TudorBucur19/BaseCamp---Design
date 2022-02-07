@@ -7,11 +7,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import CampCard from 'components/CampCard/CampCard';
-import PrimarySearchAppBar from 'components/navbar/AppBar';
 import HeaderStripe from 'components/Common/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
-import Footer from 'components/Footer/Footer';
 import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {

@@ -46,7 +46,7 @@
     justify-content: space-between;
 
     &_title {
-        @include fontSize(1.6rem, normal, $cardBorders);
+        @include fontSize(1.6rem, normal, $primaryGrey);
         margin-bottom: 1em;
     }
 

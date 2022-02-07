@@ -49,7 +49,8 @@ export const ROUTES = [
         path: "/login",
         exact: false,
         component: Login
-    }    
+    },
+
 ];
 
 const Routes = (route) => {
