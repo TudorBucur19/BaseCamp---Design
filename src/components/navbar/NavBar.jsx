@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { navBarItems } from 'utils/configValues';
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import Logo from 'components/Common/Logo/Logo';
-import style from 'components/navbar/NavBar.module.scss';
 import Button from 'components/Common/Button/Button';
 import BurgerButton from 'components/Common/BurgerButton/BurgerButton';
+import style from 'components/navbar/NavBar.module.scss';
 
 const NavBar = () => {
     const { user, handleLogout } = useContext(AuthenticationContext);
