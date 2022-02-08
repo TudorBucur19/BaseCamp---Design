@@ -1,0 +1,66 @@
+.card_cover {
+  position: relative;
+  aspect-ratio: 3/2;
+}
+.card_cover_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card_cover_info {
+  position: absolute;
+  bottom: 0px;
+  padding: 0.4em 1.4em;
+  display: flex;
+  align-items: flex-end;
+  background-color: rgba(102, 102, 102, 0.5);
+  width: 100%;
+}
+.card_cover_info_text {
+  font-size: 0.7em;
+  font-weight: normal;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 1em;
+}
+
+.card_details {
+  padding: 1.4em 1.4em 0;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card_details_title {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: #666666;
+  margin-bottom: 1em;
+}
+.card_details_access {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  min-height: 2rem;
+}
+.card_details_description {
+  min-height: 3em;
+  margin-bottom: 1.5em;
+  line-height: 1.6em;
+}
+.card_details_description_text {
+  color: #666666;
+}
+.card_details_footer {
+  border-top: 1px solid rgba(102, 102, 102, 0.5);
+  margin-top: 1.4em;
+  padding: 1.2em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.card_details_footer_icons {
+  flex-grow: 1;
+}/*# sourceMappingURL=CampCard.module.css.map */

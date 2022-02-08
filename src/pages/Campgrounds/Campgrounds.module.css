@@ -1,0 +1,11 @@
+.contentContainer {
+  max-width: 1200px;
+  margin: 2em auto;
+}
+
+.listGrid {
+  display: grid;
+  margin-top: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-gap: 2rem;
+}/*# sourceMappingURL=Campgrounds.module.css.map */

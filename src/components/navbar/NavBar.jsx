@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { navBarItems } from 'utils/configValues';
@@ -6,21 +6,28 @@ import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import Logo from 'components/Common/Logo/Logo';
 import style from 'components/navbar/NavBar.module.scss';
 import Button from 'components/Common/Button/Button';
+import BurgerButton from 'components/Common/BurgerButton/BurgerButton';
 
 const NavBar = () => {
     const { user, handleLogout } = useContext(AuthenticationContext);
+    const [isNavOpen, setIsNavOpen] = useState(false)
     const { 
         headerContainer, 
+        headerContainer_logo,
         headerContainer_nav, 
         headerContainer_nav_items, 
         headerContainer_nav_items_menuItem,
-        headerContainer_nav_items_onlyUser
+        headerContainer_nav_items_onlyUser,
+        mobileNavOpen,
     } = style;
 
     return ( 
         <header className={headerContainer}>
-            <Logo/>
-            <nav className={headerContainer_nav}>
+            <div className={headerContainer_logo}>
+                <Logo/>
+                <BurgerButton {...{isNavOpen, setIsNavOpen}} />
+            </div>
+            <nav className={`${headerContainer_nav} ${isNavOpen ? mobileNavOpen : ''}` }>
                 <ul className={headerContainer_nav_items}>
                     {navBarItems.map(item => 
                         <li 

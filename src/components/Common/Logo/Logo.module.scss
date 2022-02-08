@@ -18,3 +18,16 @@
     }
 
 }
+
+@media (max-width: 380px) {
+    .logoContainer {
+        &_icon{
+            font-size: 2em;
+        }
+
+        &_text {
+            font-size: 1.3em;
+        }
+    }
+
+}
