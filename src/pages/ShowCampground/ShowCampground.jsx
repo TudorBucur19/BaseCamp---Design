@@ -24,6 +24,7 @@ import CommentForm from 'components/forms/CommentForm';
 import DialogBox from 'components/Common/DialogBox';
 import StarRating from 'components/Common/StarRating';
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
+import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 import { campgroundFacilities } from 'utils/configValues';
 import missingImage from 'assets/image-not-found.jpg';
 
@@ -149,4 +150,4 @@ const ShowCampground = () => {
      );
 };
  
-export default ShowCampground;
+export default WrappedPage(ShowCampground);

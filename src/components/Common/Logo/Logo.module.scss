@@ -1,0 +1,33 @@
+@import '../../../scss/variables.scss';
+
+.logoContainer {
+    display: flex;
+    align-items: flex-end;
+    width: fit-content;
+    color: $white;
+
+    &_icon {
+        font-size: 3em;
+    }
+
+    &_text {
+        font-family: 'RocknRoll One', sans-serif;
+        font-size: 2em;
+        font-weight: bold;
+        margin-left: 0.4em;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .logoContainer {
+        &_icon{
+            font-size: 2em;
+        }
+
+        &_text {
+            font-size: 1.3em;
+        }
+    }
+
+}

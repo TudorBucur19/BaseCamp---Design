@@ -1,17 +1,14 @@
 import React, { useContext } from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import CampCard from 'components/CampCard/CampCard';
-import PrimarySearchAppBar from 'components/navbar/AppBar';
 import HeaderStripe from 'components/Common/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
+import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
-import Footer from 'components/Footer/Footer';
 import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {
@@ -25,7 +22,6 @@ const Campgrounds = () => {
     const {listGrid, contentContainer} = styles;
     return ( 
         <div>
-            {/* <PrimarySearchAppBar/> */}
             <div className={contentContainer}>
                 <MapBanner 
                 width="100%" 
@@ -54,9 +50,8 @@ const Campgrounds = () => {
                 </Box>
                 }
             </div>
-            {/* <Footer/> */}
         </div>        
      );
 }
  
-export default Campgrounds;
+export default WrappedPage(Campgrounds);
