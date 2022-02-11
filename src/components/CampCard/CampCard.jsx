@@ -20,6 +20,14 @@ const CampCard = ({ campground, url }) => {
     const displayDescriprtion = description.length > 100 ? `${description.substring(0, 100)}...` : description;
     const displayPrice = price > 0 ? `Price from ${price} €` : 'Free Accomodation';
 
+    const btnColors = {
+        "mountain campsite": "primary",
+        "beach campsite": "secondary",
+        "countryside campsite": "third",
+        "mountain hut": "primary",
+        "mountain refuge": "primary",
+    };
+
     const {
         card, 
         card_cover, 
@@ -68,7 +76,7 @@ const CampCard = ({ campground, url }) => {
                 <div className={card_details_description}>
                     <p className={card_details_description_text}>{displayDescriprtion}</p>
                 </div>
-                <Button label={displayPrice.toUpperCase()} variant="outlined"/>
+                <Button label={displayPrice.toUpperCase()} variant="outlined" color={btnColors[landscape]}/>
 
                 <div className={card_details_footer}>
                     <div className={card_details_footer_icons}>

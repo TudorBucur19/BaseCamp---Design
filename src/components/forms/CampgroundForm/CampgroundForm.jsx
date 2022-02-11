@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, FormProvider, useFormContext } from 'react-hook-form';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -15,11 +15,14 @@ import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import FileInput from 'components/forms/FileInput';
 import MapContainer from 'components/Common/MapContainer';
+import CustomTextField from 'components/Common/CustomInput/CustomTextField';
+import CustomTextArea from 'components/Common/CustomInput/CustomTextArea';
 import { campgroundFacilities, landscapeType, locationAccess, accomodationType } from 'utils/configValues';
+import style from 'components/forms/CampgroundForm/CampgroundForm.module.scss';
 
 const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Campground" }) => {
     const { campground, setCampground, setImages, submitCampground, handleFileChange, getClickCoords, currentPosition } = useContext(CampgroundsContext);
-    const { register, handleSubmit, setValue } = useForm();
+    const { register, setValue, handleSubmit, methods } = useForm();
     
     useEffect(() => {
         if(currentCamp) {
@@ -45,7 +48,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
     const existingAccOptions = currentCamp && currentCamp.campground.accomodationOptions;
     
     return ( 
-        <Box display="flex" flexDirection="column" width={{sm: '90%', md:'40%'}} mx="auto" my={6} p={3}>
+        <Box display="flex" flexDirection="column" width={{sm: '90%', md:'40%'}} mx="auto" my={6} p={3} >
             <Typography fontWeight="bold" fontSize="1.5rem" mb={2}>
                 {formTitle}
             </Typography>
@@ -53,16 +56,20 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
             {campground.image.length > 0 && 
                 <ImageThumbnail images={campground.image} collection={'images'} state={campground} setState={setCampground}/>
             }
+            
+            {/* <form onSubmit={handleSubmit(data => console.log(data))}> */}
             <form onSubmit={handleSubmit(submitCampground)}>
-                <TextField 
+                <CustomTextField type="text" name="name" register={register} label="Name"/>
+                {/* <TextField 
                 {...register("name", { required: true })} 
                 label="Name" 
                 variant="outlined" 
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                />
-                <TextField 
+                /> */}
+                <CustomTextField type="number" name="price" register={register} label="Price"/>
+                {/* <TextField 
                 {...register("price", { required: true })} 
                 type="number" 
                 label="Price" 
@@ -70,7 +77,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                />
+                /> */}
                 <FormControl fullWidth color="borders" margin="dense">
                     <InputLabel id="demo-simple-select-label">Campground Landscape</InputLabel>
                     <Select
@@ -86,7 +93,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                     </Select>
                 </FormControl>
 
-                <TextField 
+                {/* <TextField 
                 {...register("description", { required: true })} 
                 label="Description" 
                 variant="outlined" 
@@ -95,7 +102,8 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 minRows="3" 
                 color="borders" 
                 fullWidth
-                />
+                /> */}
+                <CustomTextArea name="description" register={register} label="Description"/>
 
                 <Typography color="text.secondary" mt={2}>Access:</Typography>
                 <Box mb={2}>
@@ -153,7 +161,8 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
 
                 <Typography color="text.secondary" mt={2}>Location Contact:</Typography>
                 <Box>
-                <TextField 
+                <CustomTextField type="text" register={register} name="contactInfo.phoneNumber" label="Phone"/>
+                {/* <TextField 
                 {...register("contactInfo.phoneNumber")} 
                 label="Phone" 
                 type="tel"
@@ -161,9 +170,10 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                />     
+                />      */}
 
-                <TextField 
+                <CustomTextField type="text" register={register} name="contactInfo.email" label="Email"/>
+                {/* <TextField 
                 {...register("contactInfo.email")} 
                 label="Email" 
                 type="email"
@@ -171,7 +181,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                />     
+                />      */}
                 </Box>
                 <Box>
                     <Typography color="text.secondary" my={2}>Choose location on map:</Typography>
@@ -186,7 +196,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 <Button type="submit" variant="contained" color="secondary" size="large" sx={{mt: 1}} fullWidth>
                     {actionName}
                 </Button>
-            </form>
+            </form>            
         </Box>
      );
 }
