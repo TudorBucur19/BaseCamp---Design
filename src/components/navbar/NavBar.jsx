@@ -7,9 +7,12 @@ import Logo from 'components/Common/Logo/Logo';
 import Button from 'components/Common/Button/Button';
 import BurgerButton from 'components/Common/BurgerButton/BurgerButton';
 import style from 'components/navbar/NavBar.module.scss';
+import CustomTextField from 'components/Common/CustomInput/CustomTextField';
+import { useForm } from 'react-hook-form';
 
 const NavBar = () => {
     const { user, handleLogout } = useContext(AuthenticationContext);
+    const { register } = useForm();
     const [isNavOpen, setIsNavOpen] = useState(false)
     const { 
         headerContainer, 

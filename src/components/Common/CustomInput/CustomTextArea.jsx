@@ -1,7 +1,7 @@
 import React from 'react';
 import style from 'components/Common/CustomInput/CustomTextArea.module.scss';
 
-const CustomTextField = ({ name, label, register, rows="3" }) => {
+const CustomTextArea = ({ name, label, register, rows="3" }) => {
     const {customField, placeholder} = style;
 
     return ( 
@@ -12,4 +12,4 @@ const CustomTextField = ({ name, label, register, rows="3" }) => {
      );
 }
  
-export default CustomTextField;
+export default CustomTextArea;

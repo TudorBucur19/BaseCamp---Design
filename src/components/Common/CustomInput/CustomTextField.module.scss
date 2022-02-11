@@ -6,6 +6,7 @@
 
   input {
     @extend %input;
+    background: transparent;
 
     &:focus + .placeholder,
     &:valid + .placeholder {
