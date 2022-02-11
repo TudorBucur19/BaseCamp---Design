@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useForm, FormProvider, useFormContext } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -10,6 +10,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { MdOutlineAddAPhoto } from 'react-icons/md';
 
 import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
@@ -22,7 +23,7 @@ import style from 'components/forms/CampgroundForm/CampgroundForm.module.scss';
 
 const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Campground" }) => {
     const { campground, setCampground, setImages, submitCampground, handleFileChange, getClickCoords, currentPosition } = useContext(CampgroundsContext);
-    const { register, setValue, handleSubmit, methods } = useForm();
+    const { register, setValue, handleSubmit } = useForm();
     
     useEffect(() => {
         if(currentCamp) {

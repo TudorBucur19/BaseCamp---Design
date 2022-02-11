@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import CampCard from 'components/CampCard/CampCard';
-import HeaderStripe from 'components/Common/HeaderStripe';
+import HeaderStripe from 'components/Common/HeaderStripe/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
@@ -29,7 +29,7 @@ const Campgrounds = () => {
                 campsList={campgroundsList}  
                 {...{currentPosition}}
                 />
-                <HeaderStripe/>
+                <HeaderStripe title="campgrounds" subtitle="choose the best"/>
                 {foundResults.length ?
                 <div className={listGrid}>
                     {foundResults &&
