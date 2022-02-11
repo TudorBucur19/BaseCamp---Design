@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
-import CampgroundForm from 'components/forms/CampgroundForm';
+import CampgroundForm from 'components/forms/CampgroundForm/CampgroundForm';
 import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 
 

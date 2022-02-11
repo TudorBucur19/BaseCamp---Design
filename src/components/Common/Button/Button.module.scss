@@ -22,15 +22,15 @@
 
 .outlined {
     padding: 15px 30px;
-    border: 2px solid #6088a4;
-    color: $btnPrimary;
+    border: 2px solid $primaryGrey;
+    color: $primaryGrey;
     font-weight: bold;
     min-width: 50%;
-    @include hoverButton($btnPrimary);
+    @include hoverButton($primaryGrey);
 }
 
 .solid {
-    background: #fff;
+    background: $white;
 }
 
 .navBar {
@@ -46,4 +46,22 @@
 .lIcon {
     font-size: 1em;
     margin-right: 0.5em;
+}
+
+.colorPrimary {
+    border: 2px solid $btnPrimary;
+    color: $btnPrimary;
+    @include hoverButton($btnPrimary);
+}
+
+.colorSecondary {
+    border: 2px solid $btnSecondary;
+    color: $btnSecondary;
+    @include hoverButton($btnSecondary);
+}
+
+.colorThird {
+    border: 2px solid $btnThird;
+    color: $btnThird;
+    @include hoverButton($btnThird);
 }

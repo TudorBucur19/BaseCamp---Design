@@ -1,2 +1,45 @@
 @import './variables.scss';
 
+%input-field {
+  display: flex;
+  position: relative;
+  font-size: $inputFontSize;
+  border-top: 10px solid transparent;
+}
+
+%input {
+    border: 1px solid $inputBorderColor;
+    color: $inputColor;
+    appearance: none;
+    padding: $inputPaddingY $inputPaddingX;
+    border-radius: $inputBorderRadius;
+    width: 100%;
+    margin: $inputMarginY 0;
+    font-size: $inputFontSize;
+
+    &:focus {
+      outline: 1px solid $inputFocusBorderColor;
+    }
+}
+
+%inputPlaceholder {
+  position: absolute;
+  left: $inputPaddingX;
+  top: 50%;  
+  transform: translateY(-50%);
+  width: calc(100% - 2($inputPaddingX));  
+  color: $inputPlaceholderColor;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all $inputLabelTransition ease;
+}
+
+%inputPlaceholder-transform {
+    top: 10%;
+    font-size: 12px;
+    //color: #aaa;
+    padding: 0 $inputMarginY;
+    background-color: $white;
+    width: fit-content;
+}
