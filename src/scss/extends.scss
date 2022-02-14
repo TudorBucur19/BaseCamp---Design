@@ -43,3 +43,11 @@
     background-color: $white;
     width: fit-content;
 }
+
+%landing-title {
+    margin-bottom: 1.4rem;
+    font-weight: normal;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+}

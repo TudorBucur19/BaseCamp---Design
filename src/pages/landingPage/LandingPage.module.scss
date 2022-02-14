@@ -1,35 +1,32 @@
 @import '../../scss/variables.scss';
+@import '../../scss/extends.scss';
+@import '../../scss/mixins.scss';
 .landing {
 	background-color: #000;
 }
 
-.landing__header {
-    display: flex;
-    flex-direction: column;
+.landing_header {
+    @include display-flex(center, center, column);
     height: 100vh;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 
-    h1 {
-        color: white;
-        text-align: center;
+    &_title {
+        @include landing-text(1.4rem, 1.4rem, $white);
     }
 
-    // a {
-    //     background-color: $btnAddBg;
-    //     color: white;
-    //     font-size: 1.2em;
-    //     font-weight: bold;
-    //     text-decoration: none;
-    //     padding: 0.6em;
-    //     border-radius: 6px;
-    
-    //     &:hover {
-    //         background-color: $btnAddHover;
-    //     }
-    // }   
+    &_subtitle {
+        @include landing-text(4rem, 1.4rem, $white);
+        max-width: 500px;
+        line-height: 1.5;
+    }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba($primaryGrey, 0.3);
+  z-index: 1;
 }
 
 .slideshow { 

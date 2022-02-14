@@ -11,3 +11,8 @@
     grid-gap: 2rem;
 }
 
+@media (max-width: 380px) {
+    .contentContainer {
+        margin-top: 0;
+    }
+}
