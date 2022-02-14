@@ -1,0 +1,121 @@
+@import '../../scss/variables.scss';
+@import '../../scss/extends.scss';
+@import '../../scss/mixins.scss';
+.landing {
+	background-color: #000;
+}
+
+.landing_header {
+    @include display-flex(center, center, column);
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+
+    &_title {
+        @include landing-text(1.4rem, 1.4rem, $white);
+    }
+
+    &_subtitle {
+        @include landing-text(4rem, 1.4rem, $white);
+        max-width: 500px;
+        line-height: 1.5;
+    }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba($primaryGrey, 0.3);
+  z-index: 1;
+}
+
+.slideshow { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &_item { 
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: 0;
+        animation: imageAnimation 50s linear infinite; 
+
+        &_image{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        // &:nth-child(1) { 
+        //     background-image: url(https://firebasestorage.googleapis.com/v0/b/basecamp-b57f1.appspot.com/o/images%2FDSC_0746small.jpg?alt=media&token=3a721f40-ecb2-4e25-9321-d1a7e035a3a0) 
+        //   }
+        // &:nth-child(2) { 
+        //     background-image: url(https://firebasestorage.googleapis.com/v0/b/basecamp-b57f1.appspot.com/o/images%2FDSC_1633small.jpg?alt=media&token=51a63dc5-d51e-4a90-8618-72e145f9b91a);
+        //     animation-delay: 10s; 
+        //   }
+        // &:nth-child(3) { 
+        //     background-image: url(https://firebasestorage.googleapis.com/v0/b/basecamp-b57f1.appspot.com/o/images%2FIMG_2163.jpeg?alt=media&token=0ebffc3b-650a-4ca5-9e25-b26cd44b7095);
+        //     animation-delay: 20s; 
+        //   }
+        // &:nth-child(4) { 
+        //     background-image: url(https://firebasestorage.googleapis.com/v0/b/basecamp-b57f1.appspot.com/o/images%2FDSC_8777small.jpg?alt=media&token=9c66d3cc-de5e-4752-ac18-2c93d6c7f2de);
+        //     animation-delay: 30s; 
+        //   }
+        // &:nth-child(5) { 
+        //     background-image: url(https://firebasestorage.googleapis.com/v0/b/basecamp-b57f1.appspot.com/o/images%2FDSC_0959small.jpg?alt=media&token=52bbd302-3a17-46dd-8e52-ce8c9dc8f398);
+        //     animation-delay: 40s; 
+        //   } 
+      }    
+  }
+
+  .delay1 {
+    animation-delay: 10s;
+  }
+
+  .delay2 {
+    animation-delay: 20s;
+  }
+
+  .delay3 {
+    animation-delay: 30s;
+  }
+
+  .delay4 {
+    animation-delay: 40s;
+  }
+  
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+  
+  
+  /* Older browser support - .no-cssanimations class added by modernizr */
+  .no-cssanimations .slideshow li {
+      opacity: 1;
+  }

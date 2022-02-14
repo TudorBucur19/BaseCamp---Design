@@ -9,6 +9,22 @@
     }
 }
 
+@mixin display-flex($justify: null, $align: null, $direction: null) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin landing-text($fontSize, $marginBottom, $color) {
+    font-size: $fontSize;
+    margin-bottom: $marginBottom;
+    color: $white;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 @mixin button-size($font, $padding) {
     font-size: $font;
     padding: $padding;

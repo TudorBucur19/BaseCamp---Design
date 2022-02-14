@@ -76,7 +76,7 @@ const CampCard = ({ campground, url }) => {
                 <div className={card_details_description}>
                     <p className={card_details_description_text}>{displayDescriprtion}</p>
                 </div>
-                <Button label={displayPrice.toUpperCase()} variant="outlined" color={btnColors[landscape]}/>
+                <Button label={displayPrice} variant="outlined" color={btnColors[landscape]}/>
 
                 <div className={card_details_footer}>
                     <div className={card_details_footer_icons}>
@@ -85,7 +85,7 @@ const CampCard = ({ campground, url }) => {
                         ))}
                     </div>
                     <Link to={`${url}/${campground.id}`}>
-                        <Button label={"Full Info".toUpperCase()} variant="basic" rightIcon={<MdArrowForwardIos/>} />
+                        <Button label={"Full Info"} variant="basic" rightIcon={<MdArrowForwardIos/>} />
                     </Link>
             </div>
             </div>
