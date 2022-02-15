@@ -12,7 +12,6 @@ import { useForm } from 'react-hook-form';
 
 const NavBar = () => {
     const { user, handleLogout } = useContext(AuthenticationContext);
-    const { register } = useForm();
     const [isNavOpen, setIsNavOpen] = useState(false)
     const { 
         headerContainer, 
@@ -27,7 +26,9 @@ const NavBar = () => {
     return ( 
         <header className={headerContainer}>
             <div className={headerContainer_logo}>
-                <Logo/>
+                <Link to="/campgrounds">
+                    <Logo/>
+                </Link>
                 <BurgerButton {...{isNavOpen, setIsNavOpen}} />
             </div>
             <nav className={`${headerContainer_nav} ${isNavOpen ? mobileNavOpen : ''}` }>

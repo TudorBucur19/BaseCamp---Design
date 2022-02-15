@@ -1,10 +1,13 @@
+@import '../../../scss/variables.scss';
+
 .iconContainer {
     display: flex;
     width: fit-content;
 
     &_icon {
         margin-right: 0.4em;
-        color: #66666680;
+        color: $primaryGreen;
+        // color: #66666680;
         font-size: 1.5em;
         &:last-child {
             margin-right: 0;

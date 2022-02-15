@@ -32,6 +32,7 @@ import missingImage from 'assets/image-not-found.jpg';
 import PageContainer from 'components/Common/PageContainer/PageContainer';
 import style from 'pages/ShowCampground/ShowCampground.module.scss';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
+import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
 
 const ShowCampground = () => {
     const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
@@ -80,8 +81,12 @@ const ShowCampground = () => {
     } = style;
       
     return ( 
+        <>
+        {camp &&
+        <>
+        <CampgroundBanner price={camp.campground.price}/>
         <PageContainer> 
-            {camp &&
+            
             <div className={container}>
                 <div className={campTitle}>
                     <h1 className={campTitle_name}>{camp.campground.name}</h1>
@@ -120,10 +125,10 @@ const ShowCampground = () => {
                             <p className={campDetails_features_item_text}>{`${camp.campground.price} € / night`}</p>
                         </div>
                     </div>
-                    <div className={campDetails_description}>
+                    <div className={campDetails_description} id="description">
                         {camp.campground.description}
                     </div>
-                    <div className={campDetails_facilities}>
+                    <div className={campDetails_facilities} id="facilities">
                         <h3 className={campDetails_facilities_title}>Campground Facilities</h3>
                         <div className={campDetails_facilities_items}>
                         {currentFacilities && currentFacilities.map(item => (
@@ -136,96 +141,10 @@ const ShowCampground = () => {
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
                 </div>
             </div>       
-            }
-        {/* {camp &&         
-            <Container sx={{mb: "2rem"}}>    
-                <Grid container spacing={4} mt={1}>
-                    <Grid item xs={12} md={4}>                        
-                        <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>                        
-                    </Grid>
-                    <Grid item xs={12} md={8}>                
-                        <Card >
-                            {image.length ? 
-                            <ImageCarousel images={image} />           
-                            :
-                            <CardMedia
-                            component="img"
-                            image={missingImage}
-                            alt="missing image"
-                            />                
-                            }
-                            <CardContent>
-                                <Box display="flex" justifyContent="space-between">
-                                    <Typography gutterBottom variant="h5" component="div" fontWeight="bold" color="info.main">
-                                        {camp.campground.name}
-                                    </Typography>
-                                    <Typography gutterBottom variant="h6" component="div">
-                                        € {camp.campground.price} /night
-                                    </Typography>
-                                </Box>
-                                <Typography variant="body2" color="text.secondary" mb={4}>
-                                    {camp.campground.description}
-                                </Typography>
-
-                                
-                                <Divider variant="middle" />
-                                <Box mt={2} display="flex">
-                                    {facilities && currentFacilities.map(item => (
-                                        <Box mr={1}>
-                                            <item.icon color="secondary"/>
-                                        </Box>
-                                    ))}
-                                </Box>
-                                
-                                <Typography my={2} fontWeight="bold">
-                                    {`submitted by: ${camp.campground.author}`}
-                                </Typography>    
-                                {camp.ratings && 
-                                <Box display="flex">
-                                    <StarRating readOnly={true} ratingValue={overAllRating}/>
-                                    <Typography color="text.primary">{`(${camp.ratings.length} ratings)`}</Typography>
-                                </Box>           
-                                }                 
-                            </CardContent>
-                            
-                            <CardActions sx={{padding: 2, justifyContent: "flex-end"}}>
-                                {campgroundOwnership &&
-                                <Stack direction="row" spacing={1}>
-                                    <Link to={`/campgrounds/${id}/editcampground`}>
-                                        <IconButton color="secondary" variant="outlined"><EditOutlinedIcon/></IconButton>
-                                    </Link>
-                                    <IconButton 
-                                    color="danger" 
-                                    variant="outlined" 
-                                    onClick={handleClickOpen}
-                                    >
-                                        <DeleteSweepOutlinedIcon />
-                                    </IconButton>
-                                </Stack>
-                                }
-                            </CardActions>
-                        </Card>
-                        {comments && comments.length > 0 &&
-                        <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
-                            {comments.map((comment, index) => 
-                                <CommentItem 
-                                key={index}
-                                comment={comment}
-                                removeComment={handleCommentsUpdate}
-                                campgroundID = {id}
-                                />
-                            )}
-                        </Paper>
-                        }
-                        {user &&
-                            <CommentForm campID={id}/>
-                        }
-                    </Grid>
-                </Grid>  
-                <DialogBox {...{open, handleClose, dialogTextContent, image}} onAgree={removeDBItem} identifier={id}/>     
-            </Container>   
-        } */}
-        </PageContainer>                    
+        </PageContainer>   
+        </>    
+        }  
+        </>           
      );
 };
  

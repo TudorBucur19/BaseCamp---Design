@@ -22,13 +22,14 @@ const Campgrounds = () => {
 
     const { listGrid } = styles;
     return ( 
-            <PageContainer>
-                <MapBanner 
+        <>
+            <MapBanner 
                 width="100%" 
                 height="400px"
                 campsList={campgroundsList}  
                 {...{currentPosition}}
                 />
+            <PageContainer>
                 <HeaderStripe title="campgrounds" subtitle="choose the best"/>
                 {foundResults.length ?
                 <div className={listGrid}>
@@ -49,7 +50,8 @@ const Campgrounds = () => {
                     }
                 </Box>
                 }
-            </PageContainer>              
+            </PageContainer>  
+        </>            
      );
 }
  
