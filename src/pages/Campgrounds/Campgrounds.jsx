@@ -9,6 +9,7 @@ import HeaderStripe from 'components/Common/HeaderStripe/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
+import PageContainer from 'components/Common/PageContainer/PageContainer';
 import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {
@@ -19,10 +20,9 @@ const Campgrounds = () => {
         result => result.campground.name.toLowerCase().includes(searchWord.searchWord.toLowerCase())
     );
 
-    const {listGrid, contentContainer} = styles;
+    const { listGrid } = styles;
     return ( 
-        <div>
-            <div className={contentContainer}>
+            <PageContainer>
                 <MapBanner 
                 width="100%" 
                 height="400px"
@@ -49,8 +49,7 @@ const Campgrounds = () => {
                     }
                 </Box>
                 }
-            </div>
-        </div>        
+            </PageContainer>              
      );
 }
  

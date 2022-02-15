@@ -1,4 +1,4 @@
-import { MdShower, MdLocalDrink, MdWifi, MdElectricalServices, MdOutlinePets, MdVideocam, MdLocalParking, MdCabin, MdBungalow } from 'react-icons/md';
+import { MdShower, MdLocalDrink, MdWifi, MdElectricalServices, MdOutlinePets, MdVideocam, MdLocalParking, MdCabin, MdBungalow, MdDirectionsBike } from 'react-icons/md';
 import { FaRestroom, FaCaravan, FaHiking, FaCar, FaCampground } from 'react-icons/fa';
 
 export const ratingLabels = {
@@ -23,6 +23,7 @@ export const campgroundFacilities = [
     { name: "pet friendly", icon: MdOutlinePets },
     { name: "video security", icon: MdVideocam },
     { name: "parking", icon: MdLocalParking },
+    { name: "bike rental", icon: MdDirectionsBike },
 ];
 
 export const landscapeType = [     

@@ -55,10 +55,14 @@
         justify-content: space-between;
         margin-bottom: 1em;
         min-height: 2rem;
+
+        &_icons {
+            display: flex;
+        }
     }
 
     &_description {
-        min-height: 3em;
+        min-height: 5em;
         margin-bottom: 1.5em;
         line-height: 1.6em;
 
@@ -75,6 +79,7 @@
         justify-content: space-between;
 
         &_icons {
+            display: flex;
             flex-grow: 1;
         }
     }
