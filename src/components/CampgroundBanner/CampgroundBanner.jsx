@@ -1,4 +1,5 @@
 import React from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import nightCamp from 'assets/nightCamp.jpg';
 import style from 'components/CampgroundBanner/CampgroundBanner.module.scss';
@@ -21,14 +22,14 @@ const CampgroundBanner = ({price}) => {
             <div className={banner_menu}> 
                 <ul className={banner_menu_items}>
                     <li>
-                        <a href="#description">
+                        <AnchorLink href="#description">
                             Description
-                        </a>
+                        </AnchorLink>
                     </li>
                     <li>
-                        <a href="#facilities">
+                        <AnchorLink href="#facilities">
                             Facilities
-                        </a>
+                        </AnchorLink>
                     </li>
                     <li>Discussions</li>
                 </ul>

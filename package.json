@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.2.9",
     "react": "^17.0.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-country-flag": "^3.0.2",
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.22.1",
