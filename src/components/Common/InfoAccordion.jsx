@@ -21,9 +21,14 @@ const InfoAccordion = ({ campground, campId, user }) => {
     const currentUserRating = campground && user && campground.ratings?.find(rating => rating.owner === user.uid);
     return ( 
     <div>
-        <Accordion>
+        <Accordion 
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon/>}
+            expandIcon={<ExpandMoreIcon color='#76b38f'/>}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -41,7 +46,12 @@ const InfoAccordion = ({ campground, campId, user }) => {
             }
           </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -67,7 +77,12 @@ const InfoAccordion = ({ campground, campId, user }) => {
           </AccordionDetails>
         </Accordion>
         {campground.campground.contactInfo && 
-        <Accordion>
+        <Accordion
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon/>}
             aria-controls="panel1a-content"
