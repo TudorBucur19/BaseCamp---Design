@@ -58,19 +58,18 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 <ImageThumbnail images={campground.image} collection={'images'} state={campground} setState={setCampground}/>
             }
             
-            {/* <form onSubmit={handleSubmit(data => console.log(data))}> */}
             <form onSubmit={handleSubmit(submitCampground)}>
-                <CustomTextField type="text" name="name" register={register} label="Name"/>
-                {/* <TextField 
+                {/* <CustomTextField type="text" name="name" register={register} label="Name"/> */}
+                <TextField 
                 {...register("name", { required: true })} 
                 label="Name" 
                 variant="outlined" 
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                /> */}
-                <CustomTextField type="number" name="price" register={register} label="Price"/>
-                {/* <TextField 
+                />
+                {/* <CustomTextField type="number" name="price" register={register} label="Price"/> */}
+                <TextField 
                 {...register("price", { required: true })} 
                 type="number" 
                 label="Price" 
@@ -78,7 +77,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 margin="dense" 
                 color="borders" 
                 fullWidth
-                /> */}
+                />
                 <FormControl fullWidth color="borders" margin="dense">
                     <InputLabel id="demo-simple-select-label">Campground Landscape</InputLabel>
                     <Select
@@ -94,7 +93,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                     </Select>
                 </FormControl>
 
-                {/* <TextField 
+                <TextField 
                 {...register("description", { required: true })} 
                 label="Description" 
                 variant="outlined" 
@@ -103,8 +102,8 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 minRows="3" 
                 color="borders" 
                 fullWidth
-                /> */}
-                <CustomTextArea name="description" register={register} label="Description"/>
+                />
+                {/* <CustomTextArea name="description" register={register} label="Description"/> */}
 
                 <Typography color="text.secondary" mt={2}>Access:</Typography>
                 <Box mb={2}>
@@ -162,27 +161,27 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
 
                 <Typography color="text.secondary" mt={2}>Location Contact:</Typography>
                 <Box>
-                <CustomTextField type="text" register={register} name="contactInfo.phoneNumber" label="Phone"/>
-                {/* <TextField 
-                {...register("contactInfo.phoneNumber")} 
-                label="Phone" 
-                type="tel"
-                variant="outlined" 
-                margin="dense" 
-                color="borders" 
-                fullWidth
-                />      */}
+                {/* <CustomTextField type="text" register={register} name="contactInfo.phoneNumber" label="Phone"/> */}
+                    <TextField 
+                    {...register("contactInfo.phoneNumber")} 
+                    label="Phone" 
+                    type="tel"
+                    variant="outlined" 
+                    margin="dense" 
+                    color="borders" 
+                    fullWidth
+                    />     
 
-                <CustomTextField type="text" register={register} name="contactInfo.email" label="Email"/>
-                {/* <TextField 
-                {...register("contactInfo.email")} 
-                label="Email" 
-                type="email"
-                variant="outlined" 
-                margin="dense" 
-                color="borders" 
-                fullWidth
-                />      */}
+                    {/* <CustomTextField type="text" register={register} name="contactInfo.email" label="Email"/> */}
+                    <TextField 
+                    {...register("contactInfo.email")} 
+                    label="Email" 
+                    type="email"
+                    variant="outlined" 
+                    margin="dense" 
+                    color="borders" 
+                    fullWidth
+                    />     
                 </Box>
                 <Box>
                     <Typography color="text.secondary" my={2}>Choose location on map:</Typography>

@@ -16,10 +16,12 @@ const AddNewCampground = ({ currentCamp }) => {
     
     useEffect(() => {
         if(currentCamp) {
-        const { name, price, description, image, coords } = currentCamp.campground;
+        const { name, price, description, image, coords, contactInfo } = currentCamp.campground;
         setValue('name', name);
         setValue('price', price);
         setValue('description', description);
+        setValue('contactInfo.phoneNumber', contactInfo.phoneNumber);
+        setValue('contactInfo.email', contactInfo.phoneNumber);
         setCampground({
             ...campground,
             image: image,

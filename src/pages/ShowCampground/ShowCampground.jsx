@@ -33,6 +33,7 @@ import PageContainer from 'components/Common/PageContainer/PageContainer';
 import style from 'pages/ShowCampground/ShowCampground.module.scss';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
+import CampCard from 'components/CampCard/CampCard';
 
 const ShowCampground = () => {
     const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
@@ -53,6 +54,13 @@ const ShowCampground = () => {
         deleteCampMsg: "You are about to remove this campground and it's data. Are you sure?",
         campHeader: "Remove this Campground?"
     }
+
+    const getSimilarItems = (property) => {
+        return campgroundsList.filter(item => item.campground.landscape === property && item.id !== camp.id)
+    };
+
+    const sameLandscape = getSimilarItems(camp.campground.landscape);
+
     
     const handleClickOpen = () => {
         setOpen(true);
@@ -77,7 +85,10 @@ const ShowCampground = () => {
         campDetails_facilities,
         campDetails_facilities_title,
         campDetails_facilities_items,
-        campExtraDetails 
+        campExtraDetails,
+        similarItems,
+        similarItems_title,
+        similarItems_items
     } = style;
       
     return ( 
@@ -85,8 +96,7 @@ const ShowCampground = () => {
         {camp &&
         <>
         <CampgroundBanner price={camp.campground.price}/>
-        <PageContainer> 
-            
+        <PageContainer>             
             <div className={container}>
                 <div className={campTitle}>
                     <h1 className={campTitle_name}>{camp.campground.name}</h1>
@@ -136,11 +146,37 @@ const ShowCampground = () => {
                         ))}
                         </div>                        
                     </div>
+
+                    {comments && comments.length > 0 &&
+                        <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
+                            {comments.map((comment, index) => 
+                                <CommentItem 
+                                key={index}
+                                comment={comment}
+                                removeComment={handleCommentsUpdate}
+                                campgroundID = {id}
+                                />
+                            )}
+                        </Paper>
+                    }
+                    {user &&
+                        <CommentForm campID={id}/>
+                    }
                 </div>
                 <div className={campExtraDetails}>
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
                 </div>
-            </div>       
+            </div>  
+            
+            <div className={similarItems}>
+                <h3 className={similarItems_title}>Similar Campgrounds</h3>
+                <div className={similarItems_items}>
+                    {sameLandscape && sameLandscape.map(item => (
+                        <CampCard campground={item} url="/campgrounds"/>
+                    ))}
+                </div>  
+            </div>   
+            
         </PageContainer>   
         </>    
         }  
