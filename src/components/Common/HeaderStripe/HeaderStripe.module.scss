@@ -1,0 +1,30 @@
+@import '../../../scss//variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    font-family: $primaryFamily;
+
+    &_title {
+        padding: 1rem;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 2.2rem;
+        color: $primaryGrey;
+    }
+
+    &_subtitle {
+        padding-bottom: 1rem;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 0.8rem;
+        color: $primaryGrey;
+    }
+
+    &_bottomLine {
+        border-bottom: 2px solid $cardBorders;
+        width: 10%;
+    }
+}

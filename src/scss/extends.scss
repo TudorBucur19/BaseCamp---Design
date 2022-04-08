@@ -1,25 +1,53 @@
 @import './variables.scss';
 
-%button-add {
-    width: fit-content;
-    background-color: $btnAddBg;
-    color: white;
-    border-radius: 4px;
-    border: none;
+%input-field {
+  display: flex;
+  position: relative;
+  font-size: $inputFontSize;
+  border-top: 10px solid transparent;
+}
 
-    &:hover {
-        background-color: $btnAddHover;
+%input {
+    border: 1px solid $inputBorderColor;
+    color: $inputColor;
+    appearance: none;
+    padding: $inputPaddingY $inputPaddingX;
+    border-radius: $inputBorderRadius;
+    width: 100%;
+    margin: $inputMarginY 0;
+    font-size: $inputFontSize;
+
+    &:focus {
+      outline: 1px solid $inputFocusBorderColor;
     }
 }
 
-%button-danger {
-    width: fit-content;
-    background-color: rgb(235, 66, 66);
-    color: white;
-    border-radius: 4px;
-    border: none;
+%inputPlaceholder {
+  position: absolute;
+  left: $inputPaddingX;
+  top: 50%;  
+  transform: translateY(-50%);
+  width: calc(100% - 2($inputPaddingX));  
+  color: $inputPlaceholderColor;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all $inputLabelTransition ease;
+}
 
-    &:hover {
-        background-color: red;
-    }
+%inputPlaceholder-transform {
+    top: 10%;
+    font-size: 12px;
+    //color: #aaa;
+    padding: 0 $inputMarginY;
+    background-color: $white;
+    width: fit-content;
+}
+
+%landing-title {
+    margin-bottom: 1.4rem;
+    font-weight: normal;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
 }

@@ -1,0 +1,21 @@
+@import '../../../scss/extends.scss';
+@import '../../../scss/mixins.scss';
+
+.customField {
+  @extend %input-field;
+
+  textarea {
+    @extend %input;
+    font-family: inherit;   
+
+    &:focus + .placeholder,
+    &:valid + .placeholder {
+      @extend %inputPlaceholder-transform;
+    }
+  }  
+}
+
+.placeholder {
+  @extend %inputPlaceholder;
+  top: 32px;
+}

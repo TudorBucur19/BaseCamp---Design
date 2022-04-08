@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
+import { MdOutlineAddAPhoto } from 'react-icons/md';
 
 const FileInput = ({ handleChange, inputLabel, setState}) => {
     const useStyles = makeStyles({
@@ -24,8 +25,14 @@ const FileInput = ({ handleChange, inputLabel, setState}) => {
             startIcon={<AddAPhotoOutlinedIcon/>}
             >
                 {inputLabel}
-                <input type="file" className={classes.fileInput} onChange={(e) => handleChange(e.target.files[0], setState)}/>
-            </Button>
+                <input 
+                type="file" 
+                className={classes.fileInput} 
+                onChange={(e) => handleChange(Array.from(e.target.files), setState)}
+                required 
+                multiple="multiple"
+                />
+            </Button>            
             <Typography ml={2} color="text.secondary">Choose an image</Typography>
         </Box> 
      );

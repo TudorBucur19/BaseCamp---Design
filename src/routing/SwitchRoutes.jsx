@@ -1,12 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import RouteWithSubRoutes from './Routes';
+
+import Routes from 'routing/Routes';
 
 const SwitchRoutes = ({ routes }) => {
     return ( 
         <Switch>
             {routes.map((route) => {
-                return <RouteWithSubRoutes 
+                return <Routes 
                         key={route.key} 
                         {...route}                        
                         /> 

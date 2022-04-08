@@ -1,0 +1,108 @@
+@import '../../scss/variables.scss';
+
+.container {
+    display: grid;    
+    grid-template-columns: repeat(3, 1fr);    
+    column-gap: 2rem;
+}
+
+.campTitle {
+    color: $primaryGrey;
+    font-weight: normal;
+
+    &_rating {
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem 0;
+
+        &_landscape {
+            margin-right: 1rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: normal;
+            
+        }
+    }
+}
+
+.campDetails {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    color: $primaryGrey;
+
+    &_features {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem 2rem;
+        margin: 2.5rem 0 0;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_icons {
+                display: flex;
+            }
+
+            &_text {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    &_description {
+        line-height: 1.5;
+        text-align: justify;
+        padding: 3rem 0;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+    }
+
+    &_facilities {
+        //margin: 2.5rem 0;
+        padding-bottom: 3rem ;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+
+        &_title {
+            margin: 1.5rem 0;
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
+
+        &_items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            row-gap: 1rem;
+        }
+        
+    }
+}
+
+.campExtraDetails {
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+
+.similarItems {
+    padding: 3rem 0;
+
+    &_title {
+        color: $primaryGrey;
+        margin: 1.5rem 0;
+        text-transform: capitalize;
+        font-weight: normal;
+        font-size: 1.5rem;
+    }
+
+    &_items {
+        display: grid;
+        margin-top: 2em;
+        grid-template-columns: repeat(3, 1fr);
+        //grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        grid-gap: 2rem;
+    }
+}
+

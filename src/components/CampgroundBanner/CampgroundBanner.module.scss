@@ -1,0 +1,70 @@
+.banner {
+    position: relative;
+    height: 350px;
+    width: 100%;
+
+    &_overlay {
+        position: absolute;
+        inset: 60% 0 0 0;
+        height: 40%;
+        width: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0, 0.7) 0%, rgba(0,0,0 ,0) 100%);
+    }
+
+    &_menu {
+        position: absolute;
+        width: 1200px;
+        height: fit-content;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: grid;    
+        grid-template-columns: repeat(3, 1fr);    
+        column-gap: 2rem;
+        bottom: 0;
+        color: white;
+        text-transform: uppercase;
+        padding: 2rem 0;
+
+        &_items {
+            display: flex;
+            align-items: flex-end;
+            grid-column-start: 1;
+            grid-column-end: 3;
+
+            li {
+                margin-right: 2rem;
+                padding-bottom: 0.5rem;
+                cursor: pointer;               
+
+                &:first-child {
+                    border-bottom: 2px solid white;
+                }
+            }
+        }
+    }
+
+    &_image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: left 80%;
+    }
+}
+
+.banner_menu_info {
+    display: flex;
+    align-items: center;
+
+    &_price {        
+        font-size: 2.5rem;
+        margin-right: 0.4rem;
+    }
+
+    &_priceTag {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        font-size: 1rem;
+    }
+}

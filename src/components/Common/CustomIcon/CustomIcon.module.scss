@@ -1,0 +1,35 @@
+@import '../../../scss/variables.scss';
+
+.iconContainer {
+    display: flex;
+    width: fit-content;
+
+    &_icon {
+        padding: 0;
+        margin-right: 0.4em;
+        font-size: 1.5em;
+        &:last-child {
+            margin-right: 0;
+        };
+    }
+
+    &_label {
+        text-transform: capitalize;
+    }    
+}
+
+.smallIcon {
+    font-size: 1.5em;
+}
+
+.largeIcon {
+    font-size: 2em;
+}
+
+.colorPrimary {
+    color: $primaryGreen;
+}
+
+.colorBasic {
+    color: $white;
+}

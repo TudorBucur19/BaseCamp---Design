@@ -1,0 +1,74 @@
+@import '../../../scss/extends.scss';
+@import '../../../scss/mixins.scss';
+
+.customField {
+  @extend %input-field;
+
+  input {
+    @extend %input;
+    background: transparent;
+
+    &:focus + .placeholder,
+    &:valid + .placeholder {
+      @extend %inputPlaceholder-transform;
+    }
+  }  
+}
+
+.placeholder {
+  @extend %inputPlaceholder;
+}
+
+// .textareaPlaceholder {
+//   top: 32px;
+// }
+
+// .customField {
+//   display: flex;
+//   position: relative;
+//   font-size: 1rem;
+//   border-top: 20px solid transparent;
+
+//   input {
+//     border: 1px solid rgba(133, 133, 133);
+//     color: rgba(0,0,0, 0.85);
+//     appearance: none;
+//     padding: 16px 14px;
+//     border-radius: 4px;
+//     width: 100%;
+//     font-size: 1rem;
+//     margin: 8px 0;
+
+//     &:focus {
+//       outline: none;
+//       border: 2px solid #00000070;
+//     }
+
+//     &:focus + .placeholder,
+//     &:valid + .placeholder {
+//       top: 10%;
+//       font-size: 12px;
+//       color: #aaa;
+//       padding: 0 8px;
+//       background-color: white;
+//       width: fit-content;
+//     }
+//   }  
+// }
+
+// .placeholder {
+//   position: absolute;
+//   left: 14px;
+//   top: 50%;  
+//   transform: translateY(-50%);
+//   width: calc(100% - 28px);  
+//   color: #aaa;
+//   overflow: hidden;
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+//   transition: all 0.4s ease;
+// }
+
+// .textareaPlaceholder {
+//   top: 32px;
+// }

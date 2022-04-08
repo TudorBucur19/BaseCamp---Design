@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import LandingPage from 'pages/landingPage/LandingPage';
+import LandingPage from 'pages/LandingPage/LandingPage';
 import Campgrounds from 'pages/Campgrounds/Campgrounds';
 import ShowCampground from 'pages/ShowCampground/ShowCampground';
-import AddNewCampground from 'components/forms/NewCampground';
-import EditCampground from 'components/forms/EditCampground';
-import Login from 'components/forms/Login';
+import AddNewCampground from 'pages/NewCampground/NewCampground';
+import EditCampground from 'pages/EditCampground/EditCampground';
+import Login from 'pages/Login/Login';
 
 export const ROUTES = [
     {
@@ -49,10 +49,11 @@ export const ROUTES = [
         path: "/login",
         exact: false,
         component: Login
-    }    
+    },
+
 ];
 
-const RouteWithSubRoutes = (route) => {
+const Routes = (route) => {
     return ( 
         <Route
             path={route.path}
@@ -62,4 +63,4 @@ const RouteWithSubRoutes = (route) => {
      );
 }
  
-export default RouteWithSubRoutes;
+export default Routes;

@@ -8,6 +8,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import SentimentDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentDissatisfiedOutlined';
 import ThumbsUpDownOutlinedIcon from '@mui/icons-material/ThumbsUpDownOutlined';
+import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 
 import StarRating from 'components/Common/StarRating';
 import MapContainer from 'components/Common/MapContainer';
@@ -18,9 +21,14 @@ const InfoAccordion = ({ campground, campId, user }) => {
     const currentUserRating = campground && user && campground.ratings?.find(rating => rating.owner === user.uid);
     return ( 
     <div>
-        <Accordion>
+        <Accordion 
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon/>}
+            expandIcon={<ExpandMoreIcon color='#76b38f'/>}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -38,7 +46,12 @@ const InfoAccordion = ({ campground, campId, user }) => {
             }
           </AccordionDetails>
         </Accordion>
-        <Accordion>
+        <Accordion
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -63,21 +76,38 @@ const InfoAccordion = ({ campground, campId, user }) => {
           }
           </AccordionDetails>
         </Accordion>
-        {/* <Accordion >
+        {campground.campground.contactInfo && 
+        <Accordion
+        sx={{
+          backgroundColor: '#49524f',
+          color: 'white'
+        }}
+        >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
+            expandIcon={<ExpandMoreIcon/>}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
-            <Typography>Info 3</Typography>
+            <ContactPhoneOutlinedIcon/><Typography ml={1}>Contact</Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-              malesuada lacus ex, sit amet blandit leo lobortis eget.
-            </Typography>
+          <AccordionDetails>           
+            <Box>
+              {campground.campground.contactInfo.phoneNumber && 
+              <Box display="flex" mb={2}>
+                <LocalPhoneOutlinedIcon color="secondary"/>
+                <Typography ml={2}>{campground.campground.contactInfo.phoneNumber}</Typography>
+              </Box>
+              }
+              {campground.campground.contactInfo.email && 
+              <Box display="flex">
+                <AlternateEmailOutlinedIcon color="secondary"/>
+                <Typography ml={2}>{campground.campground.contactInfo.email}</Typography>
+              </Box>
+              }
+            </Box>
           </AccordionDetails>
-        </Accordion> */}
+        </Accordion>
+        }
       </div> 
     );
 }
