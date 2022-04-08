@@ -151,15 +151,6 @@ const ShowCampground = () => {
                         </div>                        
                     </PageSectionWrapper>
                     
-                    {/* <div className={campDetails_facilities} id="facilities">
-                        <h3 className={campDetails_facilities_title}>Campground Facilities</h3>
-                        <div className={campDetails_facilities_items}>
-                        {currentFacilities && currentFacilities.map(item => (
-                            <CustomIcon label={item.name} icon={<item.icon/>}/>
-                        ))}
-                        </div>                        
-                    </div> */}
-
                     {comments && comments.length > 0 &&
                         <PageSectionWrapper title="comments" id="discussions">
                             <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
@@ -189,13 +180,6 @@ const ShowCampground = () => {
                     
                         <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>
                         
-                            
-                        {/* <div className={campExtraDetails_buttons_button}>
-                            <Button label="Edit" variant="outlined" color="primary" rightIcon={<MdOutlineEditNote/>}/>
-                        </div>
-                        <div className={campExtraDetails_buttons_button}>
-                            <Button label="Remove" variant="outlined" color="secondary" rightIcon={<MdDeleteSweep/>}/>
-                        </div> */}
                     </div>
                 </div>
             </div>  
@@ -204,7 +188,7 @@ const ShowCampground = () => {
             <PageSectionWrapper title="similar campgrounds" id="otherOptions">
                 <div className={similarItems_items}>
                     {sameLandscape && sameLandscape.map(item => (
-                        <CampCard campground={item} url="/campgrounds"/>
+                        <CampCard key={item.id} campground={item} url="/campgrounds"/>
                     ))}
                 </div>  
             </PageSectionWrapper>   
