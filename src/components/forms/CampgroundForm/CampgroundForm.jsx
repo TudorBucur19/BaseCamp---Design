@@ -10,7 +10,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { MdOutlineAddAPhoto } from 'react-icons/md';
 
 import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
