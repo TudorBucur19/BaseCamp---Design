@@ -27,7 +27,6 @@
     border: 2px solid $primaryGrey;
     color: $primaryGrey;
     font-weight: bold;
-    min-width: 50%;
     @include hoverButton($primaryGrey);
 }
 
