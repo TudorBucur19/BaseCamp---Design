@@ -4,7 +4,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import nightCamp from 'assets/nightCamp.jpg';
 import style from 'components/CampgroundBanner/CampgroundBanner.module.scss';
 
-const CampgroundBanner = ({price}) => {
+const CampgroundBanner = ({price, similarOptions}) => {
     const { 
         banner, 
         banner_image, 
@@ -31,7 +31,16 @@ const CampgroundBanner = ({price}) => {
                             Facilities
                         </AnchorLink>
                     </li>
-                    <li>Discussions</li>
+                    <li><AnchorLink href="#discussions">
+                            Discussions
+                        </AnchorLink>
+                    </li>
+                    {similarOptions.length > 0 &&
+                    <li><AnchorLink href="#otherOptions">
+                            Similar Options
+                        </AnchorLink>
+                    </li>
+                    }
                 </ul>
 
                 <div className={banner_menu_info}>

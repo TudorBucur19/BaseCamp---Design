@@ -34,6 +34,7 @@ import style from 'pages/ShowCampground/ShowCampground.module.scss';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
 import CampCard from 'components/CampCard/CampCard';
+import PageSectionWrapper from 'components/Common/PageSectionWrapper/PageSectionWrapper';
 
 const ShowCampground = () => {
     const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
@@ -59,7 +60,7 @@ const ShowCampground = () => {
         return campgroundsList.filter(item => item.campground.landscape === property && item.id !== camp.id)
     };
 
-    const sameLandscape = getSimilarItems(camp.campground.landscape);
+    const sameLandscape = camp && getSimilarItems(camp.campground.landscape);
 
     
     const handleClickOpen = () => {
@@ -95,7 +96,7 @@ const ShowCampground = () => {
         <>
         {camp &&
         <>
-        <CampgroundBanner price={camp.campground.price}/>
+        <CampgroundBanner price={camp.campground.price} similarOptions={sameLandscape}/>
         <PageContainer>             
             <div className={container}>
                 <div className={campTitle}>
@@ -135,32 +136,45 @@ const ShowCampground = () => {
                             <p className={campDetails_features_item_text}>{`${camp.campground.price} € / night`}</p>
                         </div>
                     </div>
-                    <div className={campDetails_description} id="description">
+                    <PageSectionWrapper id="description">
                         {camp.campground.description}
-                    </div>
-                    <div className={campDetails_facilities} id="facilities">
+                    </PageSectionWrapper>
+
+                    <PageSectionWrapper title="campground facilities" id="facilities">
+                        <div className={campDetails_facilities_items}>
+                        {currentFacilities && currentFacilities.map(item => (
+                            <CustomIcon label={item.name} icon={<item.icon/>}/>
+                        ))}
+                        </div>                        
+                    </PageSectionWrapper>
+                    
+                    {/* <div className={campDetails_facilities} id="facilities">
                         <h3 className={campDetails_facilities_title}>Campground Facilities</h3>
                         <div className={campDetails_facilities_items}>
                         {currentFacilities && currentFacilities.map(item => (
                             <CustomIcon label={item.name} icon={<item.icon/>}/>
                         ))}
                         </div>                        
-                    </div>
+                    </div> */}
 
                     {comments && comments.length > 0 &&
-                        <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
-                            {comments.map((comment, index) => 
-                                <CommentItem 
-                                key={index}
-                                comment={comment}
-                                removeComment={handleCommentsUpdate}
-                                campgroundID = {id}
-                                />
-                            )}
-                        </Paper>
+                        <PageSectionWrapper title="comments" id="discussions">
+                            <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
+                                {comments.map((comment, index) => 
+                                    <CommentItem 
+                                    key={index}
+                                    comment={comment}
+                                    removeComment={handleCommentsUpdate}
+                                    campgroundID = {id}
+                                    />
+                                )}
+                            </Paper>
+                        </PageSectionWrapper>
                     }
                     {user &&
+                    <PageSectionWrapper>
                         <CommentForm campID={id}/>
+                    </PageSectionWrapper>
                     }
                 </div>
                 <div className={campExtraDetails}>
@@ -168,14 +182,15 @@ const ShowCampground = () => {
                 </div>
             </div>  
             
-            <div className={similarItems}>
-                <h3 className={similarItems_title}>Similar Campgrounds</h3>
+            {sameLandscape.length > 0 &&
+            <PageSectionWrapper title="similar campgrounds" id="otherOptions">
                 <div className={similarItems_items}>
                     {sameLandscape && sameLandscape.map(item => (
                         <CampCard campground={item} url="/campgrounds"/>
                     ))}
                 </div>  
-            </div>   
+            </PageSectionWrapper>   
+            }
             
         </PageContainer>   
         </>    

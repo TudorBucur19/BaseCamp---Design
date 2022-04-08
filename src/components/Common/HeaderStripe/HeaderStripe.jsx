@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from 'components/Common/HeaderStripe/HeaderStripe.module.scss';
 
 const HeaderStripe = ({ title, subtitle }) => {
