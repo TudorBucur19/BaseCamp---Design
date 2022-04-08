@@ -18,6 +18,14 @@
     }    
 }
 
+.buttonBehavior {
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
 .smallIcon {
     font-size: 1.5em;
 }
@@ -32,4 +40,8 @@
 
 .colorBasic {
     color: $white;
+}
+
+.colorDanger {
+    color: $btnSecondary;
 }

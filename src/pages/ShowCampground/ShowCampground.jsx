@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MdOutlineBed, MdOutlineMap } from 'react-icons/md';
+import { MdOutlineBed, MdOutlineMap, MdOutlineEditNote, MdDeleteSweep } from 'react-icons/md';
 import { accomodationType } from 'utils/configValues';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -35,6 +35,7 @@ import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
 import CampCard from 'components/CampCard/CampCard';
 import PageSectionWrapper from 'components/Common/PageSectionWrapper/PageSectionWrapper';
+import Button from 'components/Common/Button/Button';
 
 const ShowCampground = () => {
     const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
@@ -87,6 +88,8 @@ const ShowCampground = () => {
         campDetails_facilities_title,
         campDetails_facilities_items,
         campExtraDetails,
+        campExtraDetails_buttons,
+        campExtraDetails_buttons_button,
         similarItems,
         similarItems_title,
         similarItems_items
@@ -179,6 +182,21 @@ const ShowCampground = () => {
                 </div>
                 <div className={campExtraDetails}>
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
+                    <div className={campExtraDetails_buttons}>       
+                        <Link to={`/campgrounds/${id}/editcampground`}>                                             
+                            <CustomIcon icon={<MdOutlineEditNote/>} size="large" isButton={true}/>
+                        </Link>
+                    
+                        <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>
+                        
+                            
+                        {/* <div className={campExtraDetails_buttons_button}>
+                            <Button label="Edit" variant="outlined" color="primary" rightIcon={<MdOutlineEditNote/>}/>
+                        </div>
+                        <div className={campExtraDetails_buttons_button}>
+                            <Button label="Remove" variant="outlined" color="secondary" rightIcon={<MdDeleteSweep/>}/>
+                        </div> */}
+                    </div>
                 </div>
             </div>  
             
@@ -190,8 +208,8 @@ const ShowCampground = () => {
                     ))}
                 </div>  
             </PageSectionWrapper>   
-            }
-            
+            }          
+            <DialogBox {...{open, handleClose, dialogTextContent, image}} onAgree={removeDBItem} identifier={id}/>  
         </PageContainer>   
         </>    
         }  
