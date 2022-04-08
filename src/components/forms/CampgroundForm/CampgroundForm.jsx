@@ -15,10 +15,7 @@ import ImageThumbnail from 'components/Common/ImageThumbnail';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import FileInput from 'components/forms/FileInput';
 import MapContainer from 'components/Common/MapContainer';
-import CustomTextField from 'components/Common/CustomInput/CustomTextField';
-import CustomTextArea from 'components/Common/CustomInput/CustomTextArea';
 import { campgroundFacilities, landscapeType, locationAccess, accomodationType } from 'utils/configValues';
-import style from 'components/forms/CampgroundForm/CampgroundForm.module.scss';
 
 const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Campground" }) => {
     const { campground, setCampground, setImages, submitCampground, handleFileChange, getClickCoords, currentPosition } = useContext(CampgroundsContext);
@@ -26,10 +23,11 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
     
     useEffect(() => {
         if(currentCamp) {
-        const { name, price, description, image, coords, country, facilities, access, accomodationOptions } = currentCamp.campground;
+        const { name, price, description, image, coords, country, facilities, access, accomodationOptions, contactInfo } = currentCamp.campground;
         setValue('name', name);
         setValue('price', price);
         setValue('description', description);
+        setValue('contactInfo', contactInfo, )
         setCampground({
             ...campground,
             image: image,
@@ -46,7 +44,8 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
     const existingFacilities = currentCamp && currentCamp.campground.facilities;
     const existingAccess = currentCamp && currentCamp.campground.access;
     const existingAccOptions = currentCamp && currentCamp.campground.accomodationOptions;
-    
+    const selectedLandscape = currentCamp && currentCamp.campground.landscape;
+   
     return ( 
         <Box display="flex" flexDirection="column" width={{sm: '90%', md:'40%'}} mx="auto" my={6} p={3} >
             <Typography fontWeight="bold" fontSize="1.5rem" mb={2}>
@@ -67,7 +66,7 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 color="borders" 
                 fullWidth
                 />
-                {/* <CustomTextField type="number" name="price" register={register} label="Price"/> */}
+                
                 <TextField 
                 {...register("price", { required: true })} 
                 type="number" 
@@ -83,10 +82,16 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Campground Landscape"
+                        defaultValue={selectedLandscape}
                         {...register("landscape", { required: true })}                         
                     >
                         {landscapeType.map(item =>(
-                            <MenuItem  value={item} key={item}>{item}</MenuItem>
+                            <MenuItem  
+                            key={item}
+                            value={item} 
+                            >
+                                {item}
+                            </MenuItem>
                         ))}
                         
                     </Select>
@@ -102,7 +107,6 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                 color="borders" 
                 fullWidth
                 />
-                {/* <CustomTextArea name="description" register={register} label="Description"/> */}
 
                 <Typography color="text.secondary" mt={2}>Access:</Typography>
                 <Box mb={2}>
@@ -160,7 +164,6 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
 
                 <Typography color="text.secondary" mt={2}>Location Contact:</Typography>
                 <Box>
-                {/* <CustomTextField type="text" register={register} name="contactInfo.phoneNumber" label="Phone"/> */}
                     <TextField 
                     {...register("contactInfo.phoneNumber")} 
                     label="Phone" 
@@ -171,7 +174,6 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                     fullWidth
                     />     
 
-                    {/* <CustomTextField type="text" register={register} name="contactInfo.email" label="Email"/> */}
                     <TextField 
                     {...register("contactInfo.email")} 
                     label="Email" 
