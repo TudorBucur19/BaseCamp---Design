@@ -35,7 +35,7 @@ const Campgrounds = () => {
                 <div className={listGrid}>
                     {foundResults &&
                         foundResults.map((campground) => 
-                            <CampCard {...{campground, url}}/>
+                            <CampCard key={campground.id} {...{campground, url}}/>
                         )
                     }                    
                 </div>

@@ -2,24 +2,14 @@ import React, { useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MdOutlineBed, MdOutlineMap, MdOutlineEditNote, MdDeleteSweep } from 'react-icons/md';
 import { accomodationType } from 'utils/configValues';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
-import DeleteSweepOutlinedIcon from '@mui/icons-material/DeleteSweepOutlined';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { Container } from '@mui/material';
 
 import { ratingCalculator } from 'utils/helperFunctions/helperFunctions';
+import { campgroundFacilities } from 'utils/configValues';
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
+import missingImage from 'assets/image-not-found.jpg';
 import InfoAccordion from 'components/Common/InfoAccordion';
 import CommentItem from 'components/Common/CommentItem';
 import CommentForm from 'components/forms/CommentForm';
@@ -27,15 +17,12 @@ import DialogBox from 'components/Common/DialogBox';
 import StarRating from 'components/Common/StarRating';
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
 import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
-import { campgroundFacilities } from 'utils/configValues';
-import missingImage from 'assets/image-not-found.jpg';
 import PageContainer from 'components/Common/PageContainer/PageContainer';
-import style from 'pages/ShowCampground/ShowCampground.module.scss';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
 import CampCard from 'components/CampCard/CampCard';
 import PageSectionWrapper from 'components/Common/PageSectionWrapper/PageSectionWrapper';
-import Button from 'components/Common/Button/Button';
+import style from 'pages/ShowCampground/ShowCampground.module.scss';
 
 const ShowCampground = () => {
     const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
@@ -58,9 +45,10 @@ const ShowCampground = () => {
     }
 
     const getSimilarItems = (property) => {
-        return campgroundsList.filter(item => item.campground.landscape === property && item.id !== camp.id)
+        return campgroundsList.filter(item => item.campground.landscape === property && item.id !== camp.id).slice(0, 3);
     };
 
+    //filters the campgrounsd with same landscape
     const sameLandscape = camp && getSimilarItems(camp.campground.landscape);
 
     
@@ -83,15 +71,9 @@ const ShowCampground = () => {
         campDetails_features_item,
         campDetails_features_item_icons,
         campDetails_features_item_text,
-        campDetails_description,
-        campDetails_facilities,
-        campDetails_facilities_title,
         campDetails_facilities_items,
         campExtraDetails,
         campExtraDetails_buttons,
-        campExtraDetails_buttons_button,
-        similarItems,
-        similarItems_title,
         similarItems_items
     } = style;
       
@@ -102,6 +84,7 @@ const ShowCampground = () => {
         <CampgroundBanner price={camp.campground.price} similarOptions={sameLandscape}/>
         <PageContainer>             
             <div className={container}>
+                
                 <div className={campTitle}>
                     <h1 className={campTitle_name}>{camp.campground.name}</h1>
                     <div className={campTitle_rating}>
@@ -151,15 +134,6 @@ const ShowCampground = () => {
                         </div>                        
                     </PageSectionWrapper>
                     
-                    {/* <div className={campDetails_facilities} id="facilities">
-                        <h3 className={campDetails_facilities_title}>Campground Facilities</h3>
-                        <div className={campDetails_facilities_items}>
-                        {currentFacilities && currentFacilities.map(item => (
-                            <CustomIcon label={item.name} icon={<item.icon/>}/>
-                        ))}
-                        </div>                        
-                    </div> */}
-
                     {comments && comments.length > 0 &&
                         <PageSectionWrapper title="comments" id="discussions">
                             <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
@@ -182,21 +156,15 @@ const ShowCampground = () => {
                 </div>
                 <div className={campExtraDetails}>
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
+                    {campgroundOwnership &&
                     <div className={campExtraDetails_buttons}>       
                         <Link to={`/campgrounds/${id}/editcampground`}>                                             
                             <CustomIcon icon={<MdOutlineEditNote/>} size="large" isButton={true}/>
                         </Link>
                     
-                        <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>
-                        
-                            
-                        {/* <div className={campExtraDetails_buttons_button}>
-                            <Button label="Edit" variant="outlined" color="primary" rightIcon={<MdOutlineEditNote/>}/>
-                        </div>
-                        <div className={campExtraDetails_buttons_button}>
-                            <Button label="Remove" variant="outlined" color="secondary" rightIcon={<MdDeleteSweep/>}/>
-                        </div> */}
+                        <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>    
                     </div>
+                    }
                 </div>
             </div>  
             
@@ -204,7 +172,7 @@ const ShowCampground = () => {
             <PageSectionWrapper title="similar campgrounds" id="otherOptions">
                 <div className={similarItems_items}>
                     {sameLandscape && sameLandscape.map(item => (
-                        <CampCard campground={item} url="/campgrounds"/>
+                        <CampCard key={item.id} campground={item} url="/campgrounds"/>
                     ))}
                 </div>  
             </PageSectionWrapper>   

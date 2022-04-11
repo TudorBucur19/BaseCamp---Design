@@ -27,7 +27,7 @@
   left: $inputPaddingX;
   top: 50%;  
   transform: translateY(-50%);
-  width: calc(100% - 2($inputPaddingX));  
+  width: calc(100% - 2*($inputPaddingX));  
   color: $inputPlaceholderColor;
   overflow: hidden;
   white-space: nowrap;
