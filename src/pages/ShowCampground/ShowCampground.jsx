@@ -102,6 +102,7 @@ const ShowCampground = () => {
         <CampgroundBanner price={camp.campground.price} similarOptions={sameLandscape}/>
         <PageContainer>             
             <div className={container}>
+                
                 <div className={campTitle}>
                     <h1 className={campTitle_name}>{camp.campground.name}</h1>
                     <div className={campTitle_rating}>
@@ -173,14 +174,15 @@ const ShowCampground = () => {
                 </div>
                 <div className={campExtraDetails}>
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
+                    {campgroundOwnership &&
                     <div className={campExtraDetails_buttons}>       
                         <Link to={`/campgrounds/${id}/editcampground`}>                                             
                             <CustomIcon icon={<MdOutlineEditNote/>} size="large" isButton={true}/>
                         </Link>
                     
-                        <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>
-                        
+                        <CustomIcon icon={<MdDeleteSweep/>} size="large" color="danger" isButton={true} onClick={handleClickOpen}/>    
                     </div>
+                    }
                 </div>
             </div>  
             

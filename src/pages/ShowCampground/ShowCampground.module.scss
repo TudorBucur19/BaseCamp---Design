@@ -118,3 +118,25 @@
     }
 }
 
+@media (max-width: 380px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .campDetails_facilities_items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .campExtraDetails_buttons {
+        justify-content: flex-end;
+    }
+
+    .similarItems_items {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
