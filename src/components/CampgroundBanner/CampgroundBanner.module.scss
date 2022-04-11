@@ -68,3 +68,9 @@
         font-size: 1rem;
     }
 }
+
+@media(max-width: 380px) {
+    .banner {
+        display: none;
+    }
+}
