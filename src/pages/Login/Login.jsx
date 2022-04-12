@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
-import PrimarySearchAppBar from 'components/navbar/AppBar';
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import FileInput from 'components/forms/FileInput';
 import ImageThumbnail from 'components/Common/ImageThumbnail';

@@ -21,6 +21,7 @@ const Campgrounds = () => {
     );
 
     const { listGrid } = styles;
+    
     return ( 
         <>
             <MapBanner 

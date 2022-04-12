@@ -6,7 +6,7 @@ import CampgroundsContextProvider from 'contexts/CampgroundsContext';
 import SwitchRoutes from 'routing/SwitchRoutes';
 import { ROUTES } from 'routing/Routes';
 import AuthenticationContextProvider from 'contexts/AuthenticationContext';
-import { customTheme } from 'utils/customThme';
+import { customTheme } from 'utils/materialCustomTheme';
 import './App.scss';
 
 function App() {

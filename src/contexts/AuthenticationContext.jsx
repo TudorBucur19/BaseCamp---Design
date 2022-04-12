@@ -18,7 +18,6 @@ const AuthenticationContextProvider = (props) => {
 
   const handleLogin = (data) => {
     clearErrors();
-    console.log(data)
     firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password)
