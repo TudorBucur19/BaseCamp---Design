@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
-import { MdOutlineAddAPhoto } from 'react-icons/md';
 
 const FileInput = ({ handleChange, inputLabel, setState}) => {
     const useStyles = makeStyles({

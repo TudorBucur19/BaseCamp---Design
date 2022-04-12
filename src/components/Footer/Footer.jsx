@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaInstagram, FaFacebookSquare } from 'react-icons/fa'
-import style from 'components/Footer/Footer.module.scss';
+
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
+import style from 'components/Footer/Footer.module.scss';
 
 const Footer = () => {
     const { footer, footer_socialMedia, footer_copyright } = style;
+    
     return ( 
         <footer className={footer}>
             <div className={footer_socialMedia}>
