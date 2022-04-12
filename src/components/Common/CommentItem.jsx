@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import DeleteSweepOutlinedIcon from '@mui/icons-material/DeleteSweepOutlined';
 
-import { AuthenticationContext } from '../../contexts/AuthenticationContext';
+import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import defaultAvatar from 'assets/defaultAvatar.jpg';
 

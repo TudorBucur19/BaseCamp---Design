@@ -13,6 +13,7 @@ const CampgroundBanner = ({price, similarOptions}) => {
         banner_menu_items, 
         banner_menu_info, 
         banner_menu_info_price, 
+        banner_menu_info_freePrice,
         banner_menu_info_priceTag 
     } = style;
 
@@ -53,7 +54,7 @@ const CampgroundBanner = ({price, similarOptions}) => {
                     </div>
                     </>
                     :
-                    <div className={banner_menu_info_price}>free camping</div>
+                    <div className={banner_menu_info_freePrice}>free camping</div>
                     }
                 </div>
             </div>

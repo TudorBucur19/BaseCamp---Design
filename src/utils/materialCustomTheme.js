@@ -3,10 +3,10 @@ import { grey, red } from '@mui/material/colors';
 export const customTheme = {
     palette: {
         primary: {
-          main: grey[200],
+          main: '#666666',
         },
         secondary: {
-          main: '#02a804',
+          main: '#6088a4',
         },
         borders: {
           main: grey[600],          

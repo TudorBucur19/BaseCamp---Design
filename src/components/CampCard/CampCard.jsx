@@ -9,7 +9,7 @@ import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import { ratingCalculator } from 'utils/helperFunctions/helperFunctions';
 import { locationAccess, campgroundFacilities } from 'utils/configValues';
 import missingImage from 'assets/image-not-found.jpg';
-import styles from 'components/CampCard/CampCard.module.scss';
+import style from 'components/CampCard/CampCard.module.scss';
 
 const CampCard = ({ campground, url }) => {
     const { image, name, price, country, landscape, access, facilities, description } = campground.campground;
@@ -42,7 +42,7 @@ const CampCard = ({ campground, url }) => {
         card_details_description_text,
         card_details_footer,       
         card_details_footer_icons, 
-    } = styles;
+    } = style;
 
     return ( 
         <div className={card}>

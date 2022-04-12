@@ -6,9 +6,7 @@ import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import Logo from 'components/Common/Logo/Logo';
 import Button from 'components/Common/Button/Button';
 import BurgerButton from 'components/Common/BurgerButton/BurgerButton';
-import style from 'components/navbar/NavBar.module.scss';
-import CustomTextField from 'components/Common/CustomInput/CustomTextField';
-import { useForm } from 'react-hook-form';
+import style from 'components/Navbar/NavBar.module.scss';
 
 const NavBar = () => {
     const { user, handleLogout } = useContext(AuthenticationContext);
