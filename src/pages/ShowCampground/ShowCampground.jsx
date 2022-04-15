@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MdOutlineBed, MdOutlineMap, MdOutlineEditNote, MdDeleteSweep } from 'react-icons/md';
 import { accomodationType } from 'utils/configValues';
-import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
 
 import { ratingCalculator } from 'utils/helperFunctions/helperFunctions';
@@ -11,8 +10,6 @@ import { AuthenticationContext } from 'contexts/AuthenticationContext';
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import missingImage from 'assets/image-not-found.jpg';
 import InfoAccordion from 'components/Common/InfoAccordion';
-import CommentItem from 'components/Common/CommentItem';
-import CommentForm from 'components/forms/CommentForm';
 import DialogBox from 'components/Common/DialogBox';
 import StarRating from 'components/Common/StarRating';
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
@@ -23,9 +20,10 @@ import CampgroundBanner from 'components/CampgroundBanner/CampgroundBanner';
 import CampCard from 'components/CampCard/CampCard';
 import PageSectionWrapper from 'components/Common/PageSectionWrapper/PageSectionWrapper';
 import style from 'pages/ShowCampground/ShowCampground.module.scss';
+import Comments from 'components/Common/Comments/Comments';
 
 const ShowCampground = () => {
-    const { campgroundsList, handleCommentsUpdate, removeDBItem } = useContext(CampgroundsContext);
+    const { campgroundsList, removeDBItem } = useContext(CampgroundsContext);
     const { user } = useContext(AuthenticationContext);
     const { id } = useParams(); 
     const [open, setOpen] = useState(false);
@@ -83,8 +81,7 @@ const ShowCampground = () => {
         <>
         <CampgroundBanner price={camp.campground.price} similarOptions={sameLandscape}/>
         <PageContainer>             
-            <div className={container}>
-                
+            <div className={container}>                
                 <div className={campTitle}>
                     <h1 className={campTitle_name}>{camp.campground.name}</h1>
                     <div className={campTitle_rating}>
@@ -133,26 +130,12 @@ const ShowCampground = () => {
                         ))}
                         </div>                        
                     </PageSectionWrapper>
-                    
-                    {comments && comments.length > 0 &&
-                        <PageSectionWrapper title="comments" id="discussions">
-                            <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}} >
-                                {comments.map((comment, index) => 
-                                    <CommentItem 
-                                    key={index}
-                                    comment={comment}
-                                    removeComment={handleCommentsUpdate}
-                                    campgroundID = {id}
-                                    />
-                                )}
-                            </Paper>
-                        </PageSectionWrapper>
-                    }
-                    {user &&
-                    <PageSectionWrapper>
-                        <CommentForm campID={id}/>
-                    </PageSectionWrapper>
-                    }
+
+                    <PageSectionWrapper title="comments" id="comments">
+                        {comments && comments.length > 0 &&
+                            <Comments {...{comments, id}}/>
+                        }
+                    </PageSectionWrapper>                  
                 </div>
                 <div className={campExtraDetails}>
                     <InfoAccordion campground={camp} campId={id} ratingOwnership={ratingOwnership} user={user}/>
