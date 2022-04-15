@@ -65,3 +65,8 @@ export const navBarItems = [
         onlyUser: true,
     },
 ];
+
+export const deleteCampDialogTextContent = {
+    header: "Remove this Campground?",
+    message: "You are about to remove this campground and it's data. Are you sure?"
+}

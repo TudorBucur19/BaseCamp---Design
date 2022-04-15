@@ -1,0 +1,53 @@
+@import "../../../scss/variables.scss";
+
+.campDetails {
+    &_features {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem 2rem;
+        margin: 2.5rem 0 0;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_icons {
+                display: flex;
+            }
+
+            &_text {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    &_description {
+        line-height: 1.5;
+        text-align: justify;
+        padding: 3rem 0;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+    }
+
+    &_facilities {
+        //margin: 2.5rem 0;
+        padding-bottom: 3rem ;
+        border-bottom: 1px solid rgba($cardBorders, 0.3);
+
+        &_title {
+            margin: 1.5rem 0;
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
+
+        &_items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            row-gap: 1rem;
+        }
+        
+    }
+}
