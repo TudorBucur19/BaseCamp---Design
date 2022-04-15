@@ -31,21 +31,9 @@
     color: $primaryGrey;
 }
 
-.campExtraDetails {
+.extraDetails {
     grid-column-start: 3;
     grid-column-end: 3;
-
-    &_buttons {
-        display: flex;
-        margin-top: 1rem;
-        
-        &_button {
-            &:first-child {
-                margin-right: 1em;
-            }
-        }
-        
-    }
 }
 
 .similarItems {

@@ -45,7 +45,9 @@ const CampDetails = ({ camp}) => {
                 {currentAccOptions &&
                 <div className={campDetails_features_item}>
                     <span className={campDetails_features_item_icons}>
-                        {currentAccOptions.map(item => (<CustomIcon icon={<item.icon/>} size="large"/>))}
+                        {currentAccOptions.map((item, index) => (
+                            <CustomIcon key={index} icon={<item.icon/>} size="large"/>)
+                        )}
                     </span>
                     <p className={campDetails_features_item_text}>Accomodation Options</p>
                 </div>
@@ -60,8 +62,8 @@ const CampDetails = ({ camp}) => {
             </PageSectionWrapper>
             <PageSectionWrapper title="campground facilities" id="facilities">
                 <div className={campDetails_facilities_items}>
-                {currentFacilities && currentFacilities.map(item => (
-                    <CustomIcon label={item.name} icon={<item.icon/>}/>
+                {currentFacilities && currentFacilities.map((item, index) => (
+                    <CustomIcon key={index} label={item.name} icon={<item.icon/>}/>
                 ))}
                 </div>                        
             </PageSectionWrapper>               

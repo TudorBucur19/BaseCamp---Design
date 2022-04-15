@@ -57,8 +57,8 @@ const CampCard = ({ campground, url }) => {
                 <h1 className={card_details_title}>{name}</h1>
                 <div className={card_details_access}>
                     <div className={card_details_access_icons}>
-                        {currentCampAccess?.map(item => (
-                            <CustomIcon icon={<item.icon/>}/>
+                        {currentCampAccess?.map((item, index) => (
+                            <CustomIcon key={index} icon={<item.icon/>}/>
                         ))}
                     </div>
 
@@ -80,8 +80,8 @@ const CampCard = ({ campground, url }) => {
 
                 <div className={card_details_footer}>
                     <div className={card_details_footer_icons}>
-                        {displayFacilities.map(item => (
-                            <CustomIcon icon={<item.icon/>}/>
+                        {displayFacilities.map((item, index) => (
+                            <CustomIcon key={index} icon={<item.icon/>}/>
                         ))}
                     </div>
                     <Link to={`${url}/${campground.id}`}>

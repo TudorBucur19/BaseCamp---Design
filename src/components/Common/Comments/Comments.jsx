@@ -1,13 +1,10 @@
 import React, { useContext } from 'react';
 
 import { CampgroundsContext } from 'contexts/CampgroundsContext';
-import { AuthenticationContext } from 'contexts/AuthenticationContext';
-import CommentForm from 'components/forms/CommentForm';
 import CommentItem from 'components/Common/Comments/CommentItem';
 
 const Comments = ({comments, id}) => {
     const { handleCommentsUpdate } = useContext(CampgroundsContext);
-    const { user } = useContext(AuthenticationContext);
 
     return ( 
         <>
@@ -19,10 +16,6 @@ const Comments = ({comments, id}) => {
                 campgroundID = {id}
                 />
             )}
-
-            {user &&
-                <CommentForm campID={id}/>
-            }
         </>
      );
 }

@@ -1,0 +1,13 @@
+.campExtraDetails {
+    &_buttons {
+        display: flex;
+        margin-top: 1rem;
+        
+        &_button {
+            &:first-child {
+                margin-right: 1em;
+            }
+        }
+        
+    }
+}
