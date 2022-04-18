@@ -20,11 +20,11 @@ const DialogBox = ({ open, onAgree, handleClose, dialogTextContent, identifier, 
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {dialogTextContent.campHeader}
+          {dialogTextContent.header}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {dialogTextContent.deleteCampMsg}
+            {dialogTextContent.message}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
