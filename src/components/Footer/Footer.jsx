@@ -17,7 +17,7 @@ const Footer = () => {
                     <CustomIcon icon={<FaFacebookSquare/>} size="small" color="basic"/>
                 </a>
             </div>
-            <p className={footer_copyright}>COPYRIGHT BASECAMP 2022</p>
+            <p className={footer_copyright}>@copyright basecamp2022</p>
         </footer>
      );
 }

@@ -9,7 +9,7 @@ import HeaderStripe from 'components/Common/HeaderStripe/HeaderStripe';
 import MapBanner from 'components/MapBanner/MapBanner';
 import WrappedPage from 'components/HOC/WrapedPage/WrappedPage';
 import SearchResultsMessage from 'components/Common/SearchResultsMessage';
-import PageContainer from 'components/Common/PageContainer/PageContainer';
+import PageContainer from 'components/Templates/PageContainer/PageContainer';
 import styles  from 'pages/Campgrounds/Campgrounds.module.scss';
 
 const Campgrounds = () => {

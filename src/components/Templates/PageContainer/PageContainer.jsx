@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from 'components/Common/PageContainer/PageContainer.module.scss';
+import style from 'components/Templates/PageContainer/PageContainer.module.scss';
 
 const PageContainer = ({children}) => {
     const { contentContainer } = style;
