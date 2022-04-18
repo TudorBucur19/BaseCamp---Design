@@ -1,9 +1,8 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineEditNote, MdDeleteSweep } from 'react-icons/md';
 
 import { AuthenticationContext } from 'contexts/AuthenticationContext';
-import { CampgroundsContext } from 'contexts/CampgroundsContext';
 import InfoAccordion from 'components/Common/InfoAccordion';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import style from 'components/Campground/CampExtraDetails/CampExtraDetails.module.scss';

@@ -32,22 +32,27 @@
     }
 
     &_facilities {
-        //margin: 2.5rem 0;
         padding-bottom: 3rem ;
         border-bottom: 1px solid rgba($cardBorders, 0.3);
-
-        &_title {
-            margin: 1.5rem 0;
-            text-transform: capitalize;
-            font-weight: normal;
-            font-size: 1.5rem;
-        }
 
         &_items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             row-gap: 1rem;
+            //justify-items: center;
+        }        
+    }
+}
+
+@media (max-width: $smallScreen) {
+    .campDetails {
+        &_features {
+            padding: 0;
+            flex-direction: column;
+
+            &_item {
+                margin-bottom: 2rem;
+            }
         }
-        
     }
 }

@@ -53,7 +53,7 @@ const CampDetails = ({ camp}) => {
                 </div>
                 }
                 <div className={campDetails_features_item}>
-                <CustomIcon icon={<MdOutlineBed/>} size="large"/>
+                    <CustomIcon icon={<MdOutlineBed/>} size="large"/>
                     <p className={campDetails_features_item_text}>{`${camp.campground.price} € / night`}</p>
                 </div>
             </div>
