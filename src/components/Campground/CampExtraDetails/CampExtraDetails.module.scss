@@ -1,0 +1,21 @@
+@import '../../../scss/variables.scss';
+
+.campExtraDetails {
+    &_buttons {
+        display: flex;
+        margin-top: 1rem;
+        
+        &_button {
+            &:first-child {
+                margin-right: 1em;
+            }
+        }
+        
+    }
+}
+
+@media (max-width: $smallScreen) {
+    .campExtraDetails {
+        margin-top: 1.5rem;
+    }
+}

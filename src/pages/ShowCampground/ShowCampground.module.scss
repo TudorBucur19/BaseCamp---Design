@@ -25,77 +25,15 @@
     }
 }
 
-.campDetails {
+.details {
     grid-column-start: 1;
     grid-column-end: 3;
     color: $primaryGrey;
-
-    &_features {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 2rem 2rem;
-        margin: 2.5rem 0 0;
-        border-bottom: 1px solid rgba($cardBorders, 0.3);
-
-        &_item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            &_icons {
-                display: flex;
-            }
-
-            &_text {
-                text-transform: uppercase;
-                font-size: 0.8rem;
-            }
-        }
-    }
-
-    &_description {
-        line-height: 1.5;
-        text-align: justify;
-        padding: 3rem 0;
-        border-bottom: 1px solid rgba($cardBorders, 0.3);
-    }
-
-    &_facilities {
-        //margin: 2.5rem 0;
-        padding-bottom: 3rem ;
-        border-bottom: 1px solid rgba($cardBorders, 0.3);
-
-        &_title {
-            margin: 1.5rem 0;
-            text-transform: capitalize;
-            font-weight: normal;
-            font-size: 1.5rem;
-        }
-
-        &_items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            row-gap: 1rem;
-        }
-        
-    }
 }
 
-.campExtraDetails {
+.extraDetails {
     grid-column-start: 3;
     grid-column-end: 3;
-
-    &_buttons {
-        display: flex;
-        margin-top: 1rem;
-        
-        &_button {
-            &:first-child {
-                margin-right: 1em;
-            }
-        }
-        
-    }
 }
 
 .similarItems {
@@ -118,7 +56,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: $smallScreen) {
     .container {
         display: flex;
         flex-direction: column;
@@ -128,7 +66,6 @@
     .campDetails_facilities_items {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     .campExtraDetails_buttons {

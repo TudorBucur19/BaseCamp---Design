@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Avatar, Button, Paper } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
@@ -20,36 +20,34 @@ const CommentForm = ({ campID }) => {
     }
     
     return ( 
-        <Paper sx={{mt: 2, p: 2, display: "flex", flexDirection: "column"}}>
-            <Box display="flex">
-                <Avatar 
-                alt={user.displayName} 
-                src={ user.photoURL ? user.photoURL : defaultAvatar} 
-                sx={{ width: 30, height: 30, mr: 2 }}
+        <Box display="flex" mt={4}>
+            <Avatar 
+            alt={user.displayName} 
+            src={ user.photoURL ? user.photoURL : defaultAvatar} 
+            sx={{ width: 30, height: 30, mr: 2 }}
+            />
+            <Box component="form" flexGrow="1" display="flex" flexDirection="column" alignItems="flex-end">
+                <TextField 
+                label="Add new comment" 
+                variant="outlined" 
+                margin="dense" 
+                multiline 
+                minRows="2" 
+                color="borders" 
+                fullWidth
+                {...register('commentText', {required: true})}
                 />
-                <Box component="form" flexGrow="1" display="flex" flexDirection="column" alignItems="flex-end">
-                    <TextField 
-                    label="Add new comment" 
+                <Box mt={1}>
+                    <Button 
                     variant="outlined" 
-                    margin="dense" 
-                    multiline 
-                    minRows="2" 
-                    color="borders" 
-                    fullWidth
-                    {...register('commentText', {required: true})}
-                    />
-                    <Box mt={1}>
-                        <Button 
-                        variant="outlined" 
-                        color="secondary"
-                        onClick={handleSubmit(onSubmit)}
-                        >
-                            <AddCommentOutlinedIcon/>
-                        </Button>
-                    </Box>
+                    color="secondary"
+                    onClick={handleSubmit(onSubmit)}
+                    >
+                        <AddCommentOutlinedIcon/>
+                    </Button>
                 </Box>
             </Box>
-        </Paper>
+        </Box>
      );
 }
  
