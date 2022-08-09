@@ -48,7 +48,7 @@ const CampCard = ({ campground, url }) => {
         <div className={card}>
             <figure className={card_cover}>
                 <img className={card_cover_image} src={image ? image[0].url : missingImage} alt="card cover" />
-                <div class={card_cover_info}>
+                <div className={card_cover_info}>
                     {landscape && <h3 className={card_cover_info_text}>{landscape}</h3>}
                     {overAllRating > 0 && <StarRating readOnly={true} ratingValue={overAllRating}/>}
                 </div>
@@ -87,7 +87,7 @@ const CampCard = ({ campground, url }) => {
                     <Link to={`${url}/${campground.id}`}>
                         <Button label={"Full Info"} variant="basic" rightIcon={<MdArrowForwardIos/>} />
                     </Link>
-            </div>
+                </div>
             </div>
         </div>
      );

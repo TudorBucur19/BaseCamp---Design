@@ -1,0 +1,12 @@
+@import '../../../scss/variables.scss';
+
+.contentContainer {
+    max-width: 1200px;
+    margin: 2em auto;
+}
+
+@media (max-width: $smallScreen) {
+    .contentContainer {
+        margin: 0 2rem;
+    }
+}

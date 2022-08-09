@@ -4,7 +4,7 @@ import { MdOutlineBed, MdOutlineMap } from 'react-icons/md';
 
 import missingImage from 'assets/image-not-found.jpg';
 import { campgroundFacilities, accomodationType } from 'utils/configValues';
-import PageSectionWrapper from 'components/Common/PageSectionWrapper/PageSectionWrapper';
+import PageSectionWrapper from 'components/Templates/PageSectionWrapper/PageSectionWrapper';
 import ImageCarousel from 'components/ImageCarousel/ImageCarousel';
 import CustomIcon from 'components/Common/CustomIcon/CustomIcon';
 import style from 'components/Campground/CampDetails/CampDetails.module.scss';

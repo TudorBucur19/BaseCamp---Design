@@ -2,10 +2,12 @@ import React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+import WebIcon from '@mui/icons-material/Web';
 import SentimentDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentDissatisfiedOutlined';
 import ThumbsUpDownOutlinedIcon from '@mui/icons-material/ThumbsUpDownOutlined';
 import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
@@ -64,8 +66,8 @@ const InfoAccordion = ({ campground, campId, user }) => {
             <Box>
               {currentUserRating ? 
               <>
-              <Typography>You rated this campground as <Box fontWeight="bold">{ratingLabels[currentUserRating.rating]}</Box></Typography>
-              <StarRating ratingValue={currentUserRating.rating} campId={campId} readOnly/>
+                <Typography>You rated this campground as <Box fontWeight="bold">{ratingLabels[currentUserRating.rating]}</Box></Typography>
+                <StarRating ratingValue={currentUserRating.rating} campId={campId} readOnly/>
               </>
               :
               <StarRating ratingValue={0} campId={campId}/>
@@ -99,9 +101,23 @@ const InfoAccordion = ({ campground, campId, user }) => {
               </Box>
               }
               {campground.campground.contactInfo.email && 
-              <Box display="flex">
+              <Box display="flex" mb={2}>
                 <AlternateEmailOutlinedIcon color="secondary"/>
                 <Typography ml={2}>{campground.campground.contactInfo.email}</Typography>
+              </Box>
+              }
+              {campground.campground.contactInfo.website && 
+              <Box display="flex">
+                <WebIcon color="secondary"/>
+                <Link 
+                href={campground.campground.contactInfo.website} 
+                target="_blank"
+                rel="noreferrer"
+                color='#ffffff'
+                ml={2}
+                >
+                  {campground.campground.contactInfo.website}
+                </Link>
               </Box>
               }
             </Box>

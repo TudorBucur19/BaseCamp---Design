@@ -15,7 +15,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: $smallScreen) {
     .wrapper {
         &_title {
             text-align: center;

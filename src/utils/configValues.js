@@ -32,12 +32,13 @@ export const landscapeType = [
     "countryside campsite",
     "mountain hut",
     "mountain refuge",
+    "offCamping"
 ];
 
 export const accomodationType = [
     {name: "tent", icon: FaCampground},
-    {name: "hut", icon: MdBungalow},
-    {name: "camper van", icon: FaCaravan}
+    {name: "camper van", icon: FaCaravan},
+    {name: "hut / bungalow", icon: MdBungalow}
 ];
 
 export const locationAccess = [
