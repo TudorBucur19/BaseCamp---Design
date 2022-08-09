@@ -182,7 +182,17 @@ const CampgroundForm = ({ currentCamp, actionName, formTitle = "Create a New Cam
                     margin="dense" 
                     color="borders" 
                     fullWidth
-                    />     
+                    /> 
+
+                    <TextField 
+                    {...register("contactInfo.website")} 
+                    label="Website" 
+                    type="text"
+                    variant="outlined" 
+                    margin="dense" 
+                    color="borders" 
+                    fullWidth
+                    />         
                 </Box>
                 <Box>
                     <Typography color="text.secondary" my={2}>Choose location on map:</Typography>
