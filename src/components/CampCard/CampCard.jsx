@@ -47,7 +47,7 @@ const CampCard = ({ campground, url }) => {
     return ( 
         <div className={card}>
             <figure className={card_cover}>
-                <img className={card_cover_image} src={image ? image[0].url : missingImage} alt="card cover" />
+                <img className={card_cover_image} src={image.length ? image[0].url : missingImage} alt="card cover" />
                 <div className={card_cover_info}>
                     {landscape && <h3 className={card_cover_info_text}>{landscape}</h3>}
                     {overAllRating > 0 && <StarRating readOnly={true} ratingValue={overAllRating}/>}

@@ -39,7 +39,7 @@ const CampDetails = ({ camp}) => {
                 <div className={campDetails_features_item}>
                     <CustomIcon icon={<MdOutlineMap/>} size="large"/>
                     <p className={campDetails_features_item_text}>
-                        {`${camp.campground.country.localSpot}, ${camp.campground.country.name}`}
+                        {`${camp.campground.country?.localSpot}, ${camp.campground.country?.name}`}
                     </p>
                 </div>
                 {currentAccOptions &&

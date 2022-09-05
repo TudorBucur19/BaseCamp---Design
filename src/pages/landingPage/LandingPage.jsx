@@ -8,7 +8,7 @@ import style from 'pages/LandingPage/LandingPage.module.scss';
 const LandingPage = () => {
     const { campgroundsList } = useContext(CampgroundsContext);
     const allCoverPhotos = campgroundsList.length && campgroundsList.map(item => item.campground.image);
-    const coverUrls = allCoverPhotos.length && allCoverPhotos.flat().slice(0, 5);        
+    const coverUrls = allCoverPhotos.length && allCoverPhotos.flat().slice(0, 8);        
 
     const { 
         landing, 
